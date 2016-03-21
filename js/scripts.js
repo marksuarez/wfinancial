@@ -56,4 +56,65 @@
 			});
 	});
 
+
+
+
+	$( function () {
+	    $('.pressFilters li').each(function(){
+	        var searchVal = $(this).children().text().replace(/\s+/, "").toLowerCase();
+	        $(this).children().addClass(searchVal);
+	    });
+	     $('.pressFilters li').first().removeClass().addClass('all');
+	     // Create the dropdown base
+	      $("<select id='filter-select' />").appendTo(".pressFilters");
+	      
+	      // Create default option "Go to..."
+	      $("<option />", {
+	         "selected": "selected",
+	         "value"   : "*",
+	          "text" : "-- Show All --"
+	      }).appendTo(".pressFilters select");
+	      
+	      // Populate dropdown with menu items
+	      $(".pressFilters a").each(function() {
+	       var el = $(this);
+	       $("<option />", {
+	           "value"   :"."+el.attr("class"),
+	           "text"    : el.text()
+	       }).appendTo(".pressFilters select");
+	      });
+	  var $isotopeContainerPress = $('#isotopeContainerPress');
+
+	  $isotopeContainerPress.isotope({
+	  	itemSelector: '.item'
+	  });
+
+	  $('#filter-select').change( function() {
+	    $isotopeContainerPress.isotope({
+	      filter: this.value
+	    });
+	  });
+
+	});
+	
+
+
+
+	$( function (){
+		var $isotopeContainerDeals = $('#isotopeContainerDeals');
+		$isotopeContainerDeals.isotope({
+			itemSelector: '.item',
+    			masonry: {
+      			columnWidth: '.item'
+				}
+		});
+		$isotopeContainerDeals.imagesLoaded().progress(function(){
+			$isotopeContainerDeals.isotope('layout');
+		});
+	});
+
+
+
+
+
 })(jQuery, this);

@@ -107,6 +107,12 @@ function html5blank_header_scripts()
         wp_register_script('smoothScroll', get_template_directory_uri() . '/js/vendor/smooth-scroll.js', array(), '1.0.0', true); // Smooth-Scroll
         wp_enqueue_script('smoothScroll'); // Enqueue it!
 
+        wp_register_script('isotope', get_template_directory_uri() . '/js/vendor/isotope.pkgd.min.js', array(), '1.0.0', true); // Isotope
+        wp_enqueue_script('isotope'); // Enqueue it!
+
+         wp_register_script('imagesLoaded', get_template_directory_uri() . '/js/vendor/imagesloaded.pkgd.min.js', array(), '4.1.0', true); // ImagesLoaded
+        wp_enqueue_script('imagesLoaded'); // Enqueue it!
+
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
@@ -357,7 +363,8 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+//add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+add_action('init', 'create_post_type_donedeals');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -407,7 +414,7 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 	Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
+/* Create 1 Custom Post type for a Demo, called HTML5-Blank
 function create_post_type_html5()
 {
     register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
@@ -427,6 +434,43 @@ function create_post_type_html5()
             'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
             'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
             'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
+        ),
+        'public' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        ) // Add Category and Post Tags support
+    ));
+}
+*/
+function create_post_type_donedeals()
+{
+    register_taxonomy_for_object_type('category', 'donedeals'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'donedeals');
+    register_post_type('donedeals', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Done Deals', 'Done Deals'), // Rename these to suit
+            'singular_name' => __('Done Deal', 'Done Deal'),
+            'add_new' => __('Add New', 'Deal'),
+            'add_new_item' => __('Add New Deal', 'Deal'),
+            'edit' => __('Edit', 'Deal'),
+            'edit_item' => __('Edit Deal', 'Deal'),
+            'new_item' => __('New Deal', 'Deal'),
+            'view' => __('View Deal', 'Deal'),
+            'view_item' => __('View Deal', 'Deal'),
+            'search_items' => __('Search Deals', 'Deal'),
+            'not_found' => __('No Deals found', 'Deal'),
+            'not_found_in_trash' => __('No Deals found in Trash', 'Deal')
         ),
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages

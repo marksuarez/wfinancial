@@ -17,6 +17,79 @@
 	</head>
 	<body <?php body_class(); ?>>
 
+
+
+
+
+
+		<!-- homepage hero section -->
+
+		<?php if(is_front_page() ) { ?>
+
+		<section id="hero">
+			<div class="hero">
+
+				<!-- Fullscreen video -->
+				<video class="video-bg" muted autoplay loop poster="img/option-2-poster.png">
+	            	<!--<source src="wp-content/themes/wfinancial/video/Option_2/Option2_light.mp4"/>
+	            	<source src="wp-content/themes/wfinancial/video/Option_2/Option2_light.ogv/">
+	            	<source src="wp-content/themes/wfinancial/video/Option_2/Option2_light.webm"/>-->
+            	</video>	
+				<!-- / Fullscreen video -->
+
+				<!-- Hero Navbar -->
+				<nav id="hero-navbar" class="hero-navbar" role="navigation">
+              		
+              		<!-- logo -->
+		            <div class="hero-logo">
+		            	<a href="index.html"><img src="img/logo1.png"/></a>
+		            </div>
+              		<!-- /logo -->
+
+              		<!-- Responsive Navigation Hamburger Toggle -->
+					<div class="hero-toggle" title="Menu">
+	                	<div class="bar1"></div>
+	                	<div class="bar2"></div>
+	                	<div class="bar3"></div>
+              		</div>  
+              		<!-- / -->
+
+	              	<!-- nav -->
+		            <div class="hero-nav">
+		                <!-- commenting this out 
+		                <ul>
+		                	<li><a class="active" href="index.html">Home</a></li>
+		                    <li><a href="about.html">About</a></li>
+		                    <li><a href="#">Loan Programs</a></li>
+		                    <li><a href="doneDeals.html">Done Deals</a></li>
+		                    <li><a href="press.html">Press</a></li>
+		                    <li><a href="#">Forms</a></li>
+		                    <li><a href="#">Search</a></li>
+		                    <li><a href="#">Contact</a></li>
+		                </ul>
+		                -->
+
+		                <?php 
+		                	wp_nav_menu();
+		                ?>
+
+		            </div>
+	              	<!-- /nav -->
+
+            	</nav>  
+				<!-- / Hero Navbar -->
+
+			</div>
+		</section>
+
+		<?php } ?>
+
+		<!-- / homepage hero section -->
+
+
+
+
+
 		
 		<!-- header -->
 		<header>
