@@ -23,7 +23,9 @@
 
 		<!-- /pageHead -->
 
-		<!-- pageContent (Press Page) -->
+<?php if (is_page('press')) { ?>
+
+		<!-- pageContent (Press Page) 
 
 		<section id="pageContent">
 			<div class="pageContent">
@@ -43,53 +45,53 @@
 					<div id="isotopeContainerPress" class="row">
 						
 						<div class="col-md-6 item yearone">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 						<div class="col-md-6 item yearone">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 						<div class="col-md-6 item yeartwo">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 						<div class="col-md-6 item yeartwo">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 						<div class="col-md-6 item yeartne">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 						<div class="col-md-6 item yeartwo">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 						<div class="col-md-6 item yearone">
-							<div class="pressCard">
+							<article class="pressCard">
 								<h2>January 2016</h2>
 								<p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
 								<a href="#">Read More</a>
-							</div>
+							</article>
 						</div>
 
 					</div>
@@ -97,7 +99,75 @@
 			</div>
 		</section>			
 
-		<!-- /pageContent -->
+		/pageContent -->
+
+
+		<!-- pageContent (Press Page) (DYNAMIC LOOP) -->
+
+		<section>
+			<div>
+				<div class="container">
+					<div class="row pressFilters">
+						<div class="col-md-12">
+							<ul>
+								<!-- Populates Select Dropdown Filter with the past 8 years -->
+								<li><a href="#"><?php echo date("Y")?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-1 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-2 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-3 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-4 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-5 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-6 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-7 year")); ?></a></li>
+        						<li><a href="#"><?php echo date("Y",strtotime("-8 year")); ?></a></li>
+    						</ul>
+    					</div>
+    				</div>	
+    				<div id="isotopeContainerPress" class="row">
+
+						<?php if(have_rows('press_items')):?>
+						<?php while( have_rows('press_items') ): the_row(); 
+
+							// press variables
+							$title = get_sub_field('press_item_title');
+							$date = get_sub_field('press_item_date');
+							
+							$time = strtotime($date);
+							$month = date("F", $time);
+							$year = date("Y", $time);
+
+							$link = get_sub_field('press_item_link');
+							$link_text = get_sub_field('press_item_link_text');																							
+							// /press variables
+						?>
+
+						<div class="col-md-6 item <?php echo $year; ?>">
+							<article class="pressCard">
+								<h2><?php echo $month; ?>, <?php echo $year; ?></h2>
+								<p><?php echo $title; ?></p>
+								<a href="<?php echo $link; ?>"><?php echo $link_text; ?></a>
+							</article>
+						</div>
+
+						<?php endwhile; ?>
+
+						<?php else: ?>
+
+							<h1>There are no Press Items.</h1>
+
+						<?php endif; ?>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- /pageContent (Press Page) (DYNAMIC LOOP) -->
+
+<?php } else{}; ?>
+
+
+<?php if(is_archive()) { ?>
 
 		<!-- pageContent (Done Deals Page) -->
 
@@ -279,8 +349,16 @@
 		<section>	
 
 		<!-- /pageContent -->
+
+<?php } else{}; ?>
+
+
+
+
+
+<?php if (is_page('about')) { ?>
 		
-		<!-- pageContent (About Page) -->
+		<!-- pageContent (About Page) 
 
 		<section>
 			<div class="pageContent">
@@ -367,8 +445,81 @@
 			</div>
 		</section>
 
-		<!-- /pageContent -->
+		/pageContent -->
 
+		<!-- pageContent (About Page) Dynamic-->
+
+		<section>
+			<div>
+				<div class="container">
+					<div class="row">
+
+						<?php if(have_rows('people_bios')):?>
+
+						<?php $counter = 0; ?>
+
+						<?php while( have_rows('people_bios') ): the_row(); 
+
+							// people bio variables
+							$name = get_sub_field('name');
+							$role = get_sub_field('role');
+							$bio = get_sub_field('bio');
+							$email = get_sub_field('email');
+							// $grid_portrait = ;
+							// $wide_portrait = ;																					
+							// /people bio variables
+						?>
+
+						<div class="col-md-4">
+
+							<a href="#<?php echo $counter; ?>" data-toggle="modal">
+								<img src=""/>
+								<h2><?php echo $name; ?></h2>
+								<h4><?php echo $role; ?></h4>
+							</a>
+							<div id="<?php echo $counter; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h3 id="myModalLabel"><?php echo $name; ?></h3>
+										</div>
+										<div class="modal-body">
+											<p><?php echo $bio; ?></p>
+											<a href="mailto:<?php echo $email; ?>">Contact</a>
+										</div>
+										<div class="modal-footer">
+											<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+											<button class="btn btn-primary">Save changes</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<?php $counter++; ?>
+
+						<?php endwhile; ?>
+
+						<?php else: ?>
+
+							<h1>There are no People Bios.</h1>
+
+						<?php endif; ?>
+					
+						
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- /pageContent (About Page) Dynamic-->
+
+<?php } else{}; ?>
+
+
+<?php if (is_page('search')) { ?>
 
 		<!-- pagecontent (Search Page) -->
 
@@ -385,6 +536,11 @@
 		</section>
 
 		<!-- /pagecontent (search page) -->
+
+<?php } else{}; ?>
+
+
+<?php if (is_page('loan-programs')) { ?>
 
 		<!-- pagecontent (accordians Page) -->
 
@@ -427,9 +583,15 @@
 
 		<!-- /pagecontent (accordians page) -->
 
+<?php } else{}; ?>
+
+
+
+
+
 
 		<i class="glyphicon glyphicon-adjust"></i>
-		
+
 		<section>
 
 			<h1><?php the_title(); ?></h1>

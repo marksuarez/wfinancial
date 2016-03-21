@@ -477,14 +477,14 @@ function create_post_type_donedeals()
         'has_archive' => true,
         'supports' => array(
             'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
+            //'editor',
+            //'excerpt',
+            //'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
         'can_export' => true, // Allows export in Tools > Export
         'taxonomies' => array(
-            'post_tag',
-            'category'
+            // 'post_tag',
+            // 'category'
         ) // Add Category and Post Tags support
     ));
 }

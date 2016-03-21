@@ -5979,3 +5979,6 @@ video.video-bg {
   width: auto;
   height: auto;
   z-index: -1; }
+
+.pressFilters ul {
+  display: none; }
