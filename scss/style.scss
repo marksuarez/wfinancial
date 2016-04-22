@@ -59,7 +59,7 @@
 @import "bootstrap/modals";
 @import "bootstrap/tooltip";
 @import "bootstrap/popovers";
-@import "bootstrap/carousel";
+//@import "bootstrap/carousel";
 
 // Utility classes
 @import "bootstrap/utilities";
@@ -76,6 +76,58 @@ body {
     padding-left:0;
 }
 
+div > p:first-child,
+div > h1:first-child,
+div > h2:first-child,
+div > h3:first-child,
+div > h4:first-child,
+div > h5:first-child,
+div > h6:first-child,
+div > a:first-child
+{ margin-top: 0;}
+div > p:last-child,
+div > h1:last-child,
+div > h2:last-child,
+div > h3:last-child,
+div > h4:last-child,
+div > h5:last-child,
+div > h6:last-child,
+div > a:last-child
+{ margin-bottom: 0;}
+
+
+
+h1{
+	font-weight: 400;
+}
+
+// Hanging punctuation
+
+p.quote{
+	font-family: $font-family-sans-serif;
+	font-size: 14px;
+	line-height: 21px;
+	margin: 45px 0 30px;
+	&:before {
+		color: $gray-lighter;
+	    content: '“';
+	    font-size: 36px;
+	    position: absolute;
+	    margin: 6px -20px;
+	    font-family: $font-family-sans-serif;
+	}
+	&:after {
+		color: $gray-lighter;
+	    content: '”';
+	    font-size: 36px;
+	    position: absolute;
+	    margin: 6px 6px;
+	    font-family: $font-family-sans-serif;
+	}
+}
+
+// / Hanging Punctuation
+
 // Helper for Isotope scaling responsive
 @media screen and (max-width: 992px){
 	.item{
@@ -87,9 +139,22 @@ body {
 
 .hero{
 	height: 100vh;
+	display: none;
+	@media screen and (min-width: $screen-md) {
+		display: block;
+	}
+}
+
+
+
+.video-wrapper{
+	min-height: 100%;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2' height='2'><rect width='1' height='1' fill='#008D85'/></svg>");
+	background-attachment: fixed;
 }
 
 video.video-bg{
+	display: block;
 	position: fixed;
     top: 50%;
     left: 50%;
@@ -103,15 +168,706 @@ video.video-bg{
     z-index: -1;
 }
 
+
+
 // /Hero
+
+
 
 // Header
 
+header{
+	z-index: 9996;
+	position: relative;
+}
+
+.lead{
+	color: #666;
+	margin: 12.5px 0px;
+}
+
+.navbar{
+	min-height: 0px;
+	background-color: $body-bg;
+	margin-bottom: 0;
+	padding: 0px 0px 0px 20px;
+	font-family: $font-family-sans-serif;
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border: none;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	@media screen and (min-width: $screen-md) {
+   		min-height: 90px;
+   		padding: 0 80px;
+   	}
+	.navbar-brand{
+		height: auto;
+		padding: 11px 0px;
+		.logo-img{
+			max-height: 44px;
+		}
+		@media screen and (min-width: $screen-md) {
+			padding: 22px 15px 21px;
+			.logo-img{
+				max-height: none;
+			}
+		}
+	}
+	button.navbar-toggle{
+		margin: 0;
+		padding: 24px 34px;
+		border: none;
+		border-radius: 0;
+		background-color: #FAFAFA;
+		.icon-bar{
+			background-color: $gray-base;
+			width: 30px;
+		}
+		.icon-bar + .icon-bar {
+    		margin-top: 6px;
+		}
+	}
+	.nav li{
+			&.active a{
+				/*border-bottom: 3px solid $brand-success;*/
+			}
+			@media screen and (min-width: $screen-md) {
+			a{
+				/*border-bottom: 3px solid transparent;*/
+				&:hover, &:focus{
+					/*border-bottom: 3px solid $brand-success;*/
+				}
+				&:after{
+					display:block;
+					  content: '';
+					  border-bottom: solid 3px $brand-success;  
+					  transform: scaleX(0.0001);  
+					  transition: transform 50ms ease-in-out;
+					  position: relative;
+					  bottom:-33px;
+				}
+				&:hover:after{
+					transform: scaleX(1);
+				}
+				
+			}
+			}
+
+		}
+	}
+
+
+	// Search
+	.buttonsearch{
+		width: 60px;
+		text-align: center;
+		.glyphicon.glyphicon-search {
+			font-size: 12px;
+		}
+	  	&:hover{}
+	  	&:focus{}
+	}
+	.searchbardiv{
+	  position: relative;
+	  background: #fafafa;
+	  padding: 10px;
+	  width: 100%;
+	  display: block;
+	  #searchbox {box-shadow: none;}
+	  .form-control:focus {border-color: #ccc;}
+	}
+	#formsearch{display: none;}
+
+	// /Search
+
 // /Header
+
+// Pagehead
+
+.pageHead{
+	padding: 100px 0;
+	h1{
+		font-size: 36px;
+		letter-spacing: -1px;
+		margin: 0px 0px 20px;
+	}
+	p:last-child, h1:last-child{
+		margin-bottom: 0px;
+	}
+}
+
+// /Pagehead
+
+
+
+
+// Whats Our Deal
+
+.whatsOurDeal{
+	padding: 100px 0;
+	background-color: $gray-base;
+	color: $smoke;
+	h1{
+		letter-spacing: -0.05em;
+		margin: 0px 0 10px;
+	}
+	p{
+		margin: 10px 0px 20px;
+	}
+}
+
+// /Whats our Deal
+
+// Card
+
+.gallery-cell{
+	width: 100%;
+}
+
+.flickity-page-dots{
+	bottom: 20px;
+}
+
+.card-wrapper-featured{
+	margin: 80px 0px;
+}
+
+.card-wrapper-references{
+	width: 557px; 
+	margin: 0px 15px;
+}
+
+.card-wrapper-donedeals{
+	margin-bottom: 30px;
+}
+
+.card{
+	position: relative;
+	border-top: 8px solid $brand-primary;
+	background-color: #fff;
+	/*padding: 50px;*/
+	/*margin: 100px 0px;*/
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	transition: 100ms ease-in-out;
+	&:hover{
+		box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);
+	}
+	.card-inner{
+		padding: 45px;
+	}
+	h6{
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: 500;
+		letter-spacing: .05em;
+		margin: 10px 0px;
+	}
+	h2{
+		font-size: 40px;
+		font-family: $font-family-serif;
+		font-weight: 500;
+		line-height: 1.15em;
+	}
+	hr.fancy{
+		height: 3px;
+		background: none;
+		background-color: $brand-success;
+		border: none;
+		width: 40px;
+		margin: 0;
+	}
+	&.partner-card{
+		h4{
+			font-family: $font-family-serif;
+			margin: 8px 0px;	
+			color: $gray-base;
+		}
+		h6{
+			font-weight: 400;
+			margin: 8px 0px;
+			color: $gray-base;
+		}
+		.card-inner{
+			padding: 18px 35px;
+		}
+	}
+}
+
+.card-a-wrap:hover, .card-a-wrap:focus, .card-a-wrap:active{
+	text-decoration: none;
+}
+
+
+.deal-card{
+	h2, h6, p, .deal-tag{
+		color: $smoke;
+	}
+	min-height: 300px;
+	&.deal-card-tall{
+		min-height: 630px;
+	}
+}
+
+
+
+.deal-tag{
+	background-color: $brand-success;
+	display: inline-block;
+	padding: 5px 10px;
+}
+
+.deal-details{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: 30px;
+}
+
+// /Card
+
 
 .pressFilters ul{
 	display: none;
 }
 
+.glossary .btn{
+	font-size: 14px;
+	padding: 10px 15px;
+	border: 0;
+	border-radius: 0;
+}
+
+.about-menu:hover, .about-menu:active, .about-menu:focus{
+	background-color: $smoke;
+}
 
 
+
+// Button General
+
+.btn{
+	transition: all 0.10s ease-in-out;
+	font-family: $font-family-sans-serif;
+	text-transform: uppercase;
+	font-size: 11px;
+	letter-spacing: 1px;
+}
+
+.btn-outline-white{
+	border-color: rgba(255,255,255,0.3);
+	color: #fff;
+	background-color: transparent;
+	&:hover{
+		border-color: rgba(255,255,255,0.3);
+	}
+}
+
+// / Button General
+
+
+
+// Homepage Contact Section
+
+.contact-section{
+	 background-color: $smoke; 
+	 border-top: 8px solid $brand-primary; 
+	 border-bottom: 8px solid $brand-primary;
+	 h4{
+	 	font-family: $font-family-sans-serif;
+	 	font-size: 18px;
+	 	text-transform: uppercase;
+	 	font-weight: 500;
+	 	color: $brand-primary;
+	 	margin: 20px 0;
+	 }
+	 p{
+	 	font-family: $font-family-sans-serif;
+	 	font-size: 15px;
+	 	line-height: 24px;
+	 	margin: 20px 0;
+	 }
+	 .container{
+	 	position: relative; 
+	 	-webkit-transform-style: preserve-3d; 
+	 	-moz-transform-style: preserve-3d; 
+	 	transform-style: preserve-3d;
+	 	.or-circle{
+	 		font-style: italic; 
+	 		font-size: 14px;
+	 		padding: 24px 26px; 
+	 		border-radius: 50%; 
+	 		z-index: 9999; 
+	 		position: absolute; 
+	 		background-color: #FAFAFA; 
+	 		left: 50%; 
+	 		top: 50%; 
+	 		transform: translate(-50%,-50%);
+	 	}
+	 	.row{
+	 		display: flex;
+	 		.col-md-6{
+	 			background-color: #fff;  
+	 			padding: 130px 0px; 
+	 			border-right: 1px solid #FAFAFA;
+	 		}
+	 	}
+	}
+}
+
+
+///
+
+// About Title
+
+.about-title{
+	margin-bottom: 50px;
+}
+
+.horizontal-sub-menu{
+	font-family: $font-family-sans-serif;
+	a{
+		display: inline-block;
+		color: $gray-base;
+		padding: 34px 20px;
+		&:hover, &:active, &:focus{
+			text-decoration: none;
+		}
+	}
+}
+
+///
+
+
+// Footer
+
+.container-small{
+	max-width: 800px;
+}
+
+footer{
+	line-height: 1.1em;
+	color: #fff;
+	a{
+		color: #fff;
+	}
+	.footerGreen{
+		padding: 100px 0;
+		background-color: $brand-info;
+		h2{
+			font-weight: 500;
+			font-family: $font-family-serif;
+			font-size: 24px;
+			letter-spacing: 0.002em;
+			color: $smoke;
+		}
+		h3{
+			color: $smoke;
+			font-weight: 500;
+			font-size: 16px;
+			margin: 10px 0;
+		}
+		hr{
+			opacity: 0.3;
+			margin: 30px 0;
+		}
+		.footerGreenLogo{
+			margin-bottom: 50px;
+			a{
+				img{
+					width: 100px;
+				}
+			}
+		}
+		ul{
+			padding-left: 0;
+			list-style-type: none;
+			a{
+				font-family: $font-family-sans-serif;
+				font-weight: 500;
+				font-size: 11px;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				opacity: 0.5;
+			}
+		}
+		.btn {
+			margin-bottom: 10px;
+			+ .btn {
+			margin-bottom: 0px;
+			}
+		}
+	}
+	.footerBlack{
+		padding: 60px 0;
+		background-color: $gray-base;
+		font-family: $font-family-sans-serif;
+		font-weight: 200;
+		font-size: 13px;
+		.associationLogos{
+			margin-bottom: 40px;
+			a{
+				margin: 20px;
+				img{
+					height: 60px;
+					opacity: .5;
+				}
+			}
+		}
+	}
+}
+
+// /footer
+
+
+// Gravity Forms Customizations
+
+.gform_wrapper{
+	font-family: $font-family-sans-serif;
+	.gfield_label{
+		font-weight: 400;
+		letter-spacing: 0;
+	}
+}
+.ginput_complex{
+	label{
+		display: none;
+	}
+}
+
+body img.gform_ajax_spinner {
+    display: none!important;
+}
+
+.ginput_container_address{
+	span{
+		display: block;
+		margin-bottom: 15px;
+	}
+}
+
+.gf_page_steps{
+	height: 100px;
+	margin: 30px 0px;
+	.gf_step{
+		width: 33.333%;
+		display: inline-block;
+		float: left;
+		text-align: center;
+		background-color: #eaebeb;
+		padding: 20px 10px;
+		position: relative;
+		border: 1px solid #fff;
+		.gf_step_number{
+			font-size: 20px;
+			margin-right: 5px;
+		}
+		.gf_step_label{
+			display: block;
+			font-size: 14px;
+		}
+		&:not(.gf_step_first){
+			border-left: 0;
+		}
+		&:after{
+			position: absolute;
+			z-index: 2;
+			content: '';
+			top: 50%;
+			right: 0;
+			border: solid;
+			width: 1em;
+			height: 1em;
+			border-color: #fff;
+			background-color: $smoke;
+			border-width: 0 1px 1px 0;
+			-webkit-transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+			transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+			-webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+			-ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+			transform: translateY(-50%) translateX(50%) rotate(-45deg);
+		}
+		&.gf_step_last:after{
+			width: 0em !important;
+			height: 0em !important;
+		}
+	}
+}
+
+h2.gsection_title{
+	font-size: 18px;
+	font-weight: 400;
+}
+
+// /Gravity Forms Customizations
+
+#breadcrumbs{
+	font-family: $font-family-sans-serif;
+	font-size: 11px;
+	font-weight: 400;
+    list-style:none;
+    margin:10px 0;
+    overflow:hidden;
+    li{
+	    display:inline-block;
+	    vertical-align:middle;
+	    margin-right:15px;
+	}
+	.item-current strong{
+		font-weight: 400;
+	}
+	.separator{
+    	font-size:11px;
+    	font-weight:100;
+    	color:#ccc;
+	}
+}
+
+.arrow{
+	background-color: #ffffff; 
+	position: fixed;
+	top:0; 
+	height: 100%; 
+	background-color: 
+	transparent; 
+	z-index: 9999;
+	&.arrow-left{
+		left: 0;
+	}
+	&.arrow-right{
+		right: 0;	
+	}	
+	a{
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+
+.custom-list-group{
+	margin: 40px 0px;
+}
+
+.custom-nav-stacked{
+	padding-left: 0px;
+	.list-group-item{
+		margin-bottom: 2px;
+		padding: 0;
+		border: none;
+		font-family: $font-family-sans-serif;
+		font-size: 16px;
+		a{
+			transition: 100ms ease-in-out;
+			border-radius: 0px;
+			background-color: $smoke;
+			color: $gray-base;
+			display: block;
+			padding: 10px 15px;
+			&:hover, &:focus, &:active{
+				text-decoration: none;
+				background-color: #e1e2e2;
+				color: $gray-base;
+			}
+			@media screen and (min-width: $screen-md) {
+    			padding: 21px 34px;  
+    		}
+		}
+		&.current_page_item a{
+			background-color: $brand-primary;
+			color: $smoke;
+			&:hover{
+				background-color: $brand-info;
+			}
+		}
+	}
+}
+
+.custom-list-group{
+}
+
+.custom-panel-collapse{
+	/*border: 1px solid $smoke;*/
+	border-radius: 4px;
+	.panel{
+		border: none;
+	}
+	.panel + .panel{
+		border-top: 1px solid $smoke;
+		margin-top: 0px;
+	}
+	.panel-heading{
+		h6{
+			font-size: 16px;
+			line-height: 1.6em;
+			color: $brand-primary;
+			font-weight: 500;
+		}
+		background-color: transparent;
+		padding: 20px 0px;
+		a:hover, a:active, a:focus{
+			text-decoration: none;
+		}
+		a:before {
+			display: none;
+			float: left;
+    		font-family: FontAwesome;
+    		content: "\f078";   
+    		margin: 0 15px 0 0;
+    		font-size: 16px;
+    		width: 12px;
+    		height: 100%;
+    		@media screen and (min-width: $screen-md) {
+    			  display: block;
+    		}
+		}
+		a.collapsed:before{
+			content: "\f054";
+			display:none;
+			@media screen and (min-width: $screen-md) {
+    			display: block;
+    		}
+		}
+	}
+	.panel-body{
+		border-top: 1px solid $smoke !important;
+		border-top-color: $smoke !important;
+		padding: 40px 40px;
+		@media screen and (min-width: $screen-md) {
+			padding: 20px 32px;
+		}
+	}
+	p{
+		margin: 0 0;
+	}
+	p+p{
+		margin: 12px 0 0 0;
+	}
+}
+
+
+
+
+
+
+
+
+.content{
+	padding: 100px 0px;
+}
+
+
+.modal{
+	.modal-dialog{
+		width: auto;
+		.modal-content{
+			border-radius: 0;
+			border: none;
+			.modal-header, .modal-footer{
+				border: none;
+			}
+		}
+	}
+}

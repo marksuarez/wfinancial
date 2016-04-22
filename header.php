@@ -30,11 +30,13 @@
 			<div class="hero">
 
 				<!-- Fullscreen video -->
-				<video class="video-bg" muted autoplay loop poster="img/option-2-poster.png">
-	            	<!--<source src="wp-content/themes/wfinancial/video/Option_2/Option2_light.mp4"/>
-	            	<source src="wp-content/themes/wfinancial/video/Option_2/Option2_light.ogv/">
-	            	<source src="wp-content/themes/wfinancial/video/Option_2/Option2_light.webm"/>-->
-            	</video>	
+				<div class="video-wrapper">
+					<video class="video-bg" muted autoplay loop poster="img/option-2-poster.png">
+		            	<source src="http://marksupernet.com/Recutvid/Option2_light.mp4"/>
+		            	<source src="http://marksupernet.com/Recutvid/Option2_light.oggtheora.ogv">
+		            	<source src="http://marksupernet.com/Recutvid/Option2_light.webmsd.webm"/>
+	            	</video>	
+            	</div>
 				<!-- / Fullscreen video -->
 
 				<!-- Hero Navbar -->
@@ -103,8 +105,8 @@
 				        <span class="icon-bar"></span>
 				    </button>
 				    <a class="navbar-brand" href="<?php echo home_url(); ?>">
-				    	<?php bloginfo('name'); ?>
-				        <!--<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">-->
+				    	<!--<?php bloginfo('name'); ?>-->
+				        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
 				    </a>
 				</div>
 
@@ -123,6 +125,19 @@
 			            );
 			        ?>
 		    	</div>
-			</nav>        
+			</nav>
+			<div class="searchbardiv" id="formsearch">
+				<div class="container">
+	        	<form class="search" role="search" action="<?php echo home_url(); ?>" method="get" id="searchform"  >
+	            	<div class="input-group">
+	              		<input type="text" id="searchbox" class="form-control" name="s" id="s">
+	              		<div class="input-group-btn">
+	                		<button class="btn btn-default"  id="searchsubmit"  type="submit">
+	                  		<strong>Search</strong></button>
+	              		</div>
+	            	</div>
+	          	</form>
+	          	</div>
+			</div>        
 		</header>		        
 		<!-- /header -->

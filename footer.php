@@ -2,70 +2,68 @@
 		<footer class="footer" role="contentinfo">
 			
 			<section>
-				<div class="container">
+				<div class="footerGreen">
 
-					<div class="text-center">
-						<a href="#">
-							<img src="" href="#"/>
-						</a>
-					</div>
-					<h1 class="text-center">Special situation financing for commercial real estate.</h1>
+					<div class="container container-small">
 
-					<hr/>
+						<div class="text-center footerGreenLogo">
+							<a href="#">
+								<img src="http://www.wfinancial.dev/wp-content/uploads/logo1-white.png" href="#"/>
+							</a>
+						</div>
+						<h2 class="text-center">Special situation financing for commercial real estate.</h2>
 
-					<div class="row">
-						<div class="col-md-8">
+						<hr/>
 
-							<div class="row">
-								<div class="col-md-4">
-									<h3>About W</h3>
-									<ul>
-										<li><a href="#">About</a></li>
-										<li><a href="#">Contact</a></li>
-										<li><a href="#">Press</a></li>
-									</ul>
+						<div class="row">
+							<div class="col-md-7">
+
+								<div class="row">
+									<div class="col-md-4">
+										<h3>About W</h3>
+										<?php wp_nav_menu(array(
+    										'menu' => 'footer-about'
+										)) ?>
+									</div>
+									<div class="col-md-4">
+										<h3>Loans</h3>
+										<?php wp_nav_menu(array(
+    										'menu' => 'footer-loans'
+										)) ?>
+									</div>
+									<div class="col-md-4">
+										<h3>More</h3>
+										<?php wp_nav_menu(array(
+    										'menu' => 'footer-more'
+										)) ?>
+									</div>
 								</div>
-								<div class="col-md-4">
-									<h3>Loans</h3>
-									<ul>
-										<li><a href="#">Loan Programs</a></li>
-										<li><a href="#">Done Deals</a></li>
-										<li><a href="#">Forms</a></li>
-									</ul>
-								</div>
-								<div class="col-md-4">
-									<h3>More</h3>
-									<ul>
-										<li><a href="#">FAQ</a></li>
-										<li><a href="#">Glossary</a></li>
-									</ul>
-								</div>
+
 							</div>
-
+							<div class="col-md-5">
+								<a href="#" class="btn btn-default btn-outline-white center-block">Investors & Advisors Login</a>
+								<a href="#" class="btn btn-default btn-outline-white center-block">New Investor Inquiries</a>
+							</div>
 						</div>
-						<div class="col-md-4">
-							<a href="#" class="btn btn-default center-block">Investors & Advisors Login</a>
-							<a href="#" class="btn btn-default center-block">New Investor Inquiries</a>
-						</div>
-					</div
-					>
+					</div>
 				</div>
 			</section>
 
 
 			<section>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="text-center associationLogos">
-								<a href="#"><img src=""/>rebny</a>
-                  				<a href="#"><img src=""/>rela</a>
-							</div>
-							<p class="copyright text-center">
-								&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-								<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-							</p>
-						</div>	
+				<div class="footerBlack">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="text-center associationLogos">
+									<a href="https://www.rebny.com/content/rebny/en.html/"><img src="http://www.wfinancial.dev/wp-content/uploads/rebny.jpg"/></a>
+	                  				<a href="http://www.rela.org/"><img src="http://www.wfinancial.dev/wp-content/uploads/rela.png"/></a>
+								</div>
+								<p class="copyright text-center">
+									Copyright &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved.
+								</p>
+							</div>	
+						</div>
 					</div>
 				</div>
 			</section>

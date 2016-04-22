@@ -2,12 +2,11 @@
 
 	<main role="main">
 		<section>
-			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 			<div>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							
+							<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 								<div class="text-center"><?php custom_breadcrumbs(); ?></div>
 
 								<?php 
@@ -17,25 +16,8 @@
 								$dealShortDescription = get_field('deal_short_description');
 								$dealLongDescription = get_field('deal_long_description');
 								?>
-								
-								<div style="position: relative; background: url(<?php the_field('full_image'); ?>) center center/cover;">
-									<div class="row">
-										<div class="col-md-6">
-											<div style="background-color: white; padding: 50px; margin: 50px;">
-											<ul>
-												<li style="display: none;"><img src="<?php the_field('full_image'); ?>" width="100%" /></li>
-												<li><h2><?php echo $dealAmount; ?></h2></li>
-												<li><?php echo $dealType; ?></li>
-												<li><?php echo $dealLocation; ?></li>
-												<li><?php echo $dealShortDescription; ?></li>
-												<li><?php echo $dealLongDescription; ?></li>
-											</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-									
-								<!--
+								<img src="<?php the_field('full_image'); ?>" width="100%" />
+								<div style="height: 50px; background: url(<?php the_field('full_image'); ?>) cover center center no-repeat;"></div>
 								<ul>
 									<li><?php echo $dealAmount; ?></li>
 									<li><?php echo $dealType; ?></li>
@@ -44,41 +26,28 @@
 									<li><?php echo $dealLongDescription; ?></li>
 									
 								</ul>
-								-->
+								<?php previous_post_link('%link', 'Previous post'); ?>
+								<?php next_post_link('%link', 'Next post'); ?>
 								
-								
 
 
 
 
-							
-							<div class="text-center">
-							<a href="#" class="btn btn-primary">Back To Done Deals</a>
-							</div>
+							<?php endwhile; ?>
+
+							<?php else: ?>
+
+							<article>
+
+								<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+
+							</article>
+
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
-
-				<div class="arrow arrow-left">
-					<?php previous_post_link('%link', '<i class="glyphicon glyphicon-arrow-left"></i>'); ?>
-				</div>
-				<div class="arrow arrow-right">
-					<?php next_post_link('%link', '<i class="glyphicon glyphicon-arrow-right"></i>'); ?>
-				</div>
-
 			</div>
-			<?php endwhile; ?>
-
-				<?php else: ?>
-
-				<article>
-
-					<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
-
-				</article>
-
-			<?php endif; ?>
-
 		</section>
 
 
