@@ -24,43 +24,70 @@
 
 		<!-- homepage hero section -->
 
-		<?php if(is_front_page() ) { ?>
+<?php if(is_front_page() ) { ?>
 
 		<section id="hero">
+
 			<div class="hero">
 
 				<!-- Fullscreen video -->
 				<div class="video-wrapper">
-					<video class="video-bg" muted autoplay loop poster="img/option-2-poster.png">
+
+					<video id="video1" class="video-bg" preload="auto" muted autoplay poster="http://marksupernet.com/Recutvid/poster.png">
+		            	<source src="http://marksupernet.com/Recutvid/Option2_light.webmsd.webm"/>
 		            	<source src="http://marksupernet.com/Recutvid/Option2_light.mp4"/>
 		            	<source src="http://marksupernet.com/Recutvid/Option2_light.oggtheora.ogv">
-		            	<source src="http://marksupernet.com/Recutvid/Option2_light.webmsd.webm"/>
+	            	</video>
+
+	            	<video id="video2" class="video-bg" preload="auto" muted autoplay loop poster="http://marksupernet.com/Recutvid/poster.png">
+		            	<source src="http://www.meingottdeingott.de/videos/MEGODEGO_HG_loop.webm"/>
+		            	<source src="http://www.meingottdeingott.de/videos/MEGODEGO_HG_loop.mp4"/>
 	            	</video>	
+
             	</div>
 				<!-- / Fullscreen video -->
 
-				<!-- Hero Navbar -->
-				<nav id="hero-navbar" class="hero-navbar" role="navigation">
-              		
-              		<!-- logo -->
-		            <div class="hero-logo">
-		            	<a href="index.html"><img src="img/logo1.png"/></a>
-		            </div>
-              		<!-- /logo -->
 
-              		<!-- Responsive Navigation Hamburger Toggle -->
-					<div class="hero-toggle" title="Menu">
-	                	<div class="bar1"></div>
-	                	<div class="bar2"></div>
-	                	<div class="bar3"></div>
-              		</div>  
-              		<!-- / -->
 
-	              	<!-- nav -->
-		            <div class="hero-nav">
-		                <!-- commenting this out 
-		                <ul>
-		                	<li><a class="active" href="index.html">Home</a></li>
+				<!-- Everything Else -->
+
+				<div class="hero-elements-wrapper">
+
+					<!-- hero navbar -->
+
+		            <div class="hero-navbar">
+			            <!-- logo -->
+		            	<div class="hero-logo">
+		            		<a href="index.html"><img src="<?php echo get_template_directory_uri() . '/img/logo1.png'?>"/></a>
+		            	</div>
+		              <!-- /logo -->
+
+
+		              
+	            </div>  
+	            <!-- / hero navbar -->
+
+	            <!-- Rotator -->
+				<div class="container">
+	                <ul id="headlines">
+	                  <li class="textItem"><h1>Commercial real estate financing</h1></li>
+	                  <li class="textItem"><h1>At the speed of New York.</h1></li>
+	                  <li class="textItem"><h1><img src="<?php echo get_template_directory_uri() . '/img/logo2.png'?>"/></h1></li>
+	                </ul>
+	            </div>
+	            <!-- / Rotator -->
+
+
+        	</div>
+            <!-- /// Everything Else -->
+
+
+			</div>
+
+<!-- nav -->
+		              <nav class="hero-nav" role="navigation">
+		                  <ul>
+		                    <li><a class="active" href="index.html">Home</a></li>
 		                    <li><a href="about.html">About</a></li>
 		                    <li><a href="#">Loan Programs</a></li>
 		                    <li><a href="doneDeals.html">Done Deals</a></li>
@@ -68,23 +95,22 @@
 		                    <li><a href="#">Forms</a></li>
 		                    <li><a href="#">Search</a></li>
 		                    <li><a href="#">Contact</a></li>
-		                </ul>
-		                -->
+		                  </ul>
+		              </nav>
+		              <!-- /nav -->
+			
+		              		              <!-- Responsive Navigation Hamburger Toggle -->
+		              <div class="hero-toggle" title="Menu">
+		                  <div class="bar1"></div>
+		                  <div class="bar2"></div>
+		                  <div class="bar3"></div>
+		              </div>  
+		              <!-- / -->
+			
 
-		                <?php 
-		                	wp_nav_menu();
-		                ?>
-
-		            </div>
-	              	<!-- /nav -->
-
-            	</nav>  
-				<!-- / Hero Navbar -->
-
-			</div>
 		</section>
 
-		<?php } ?>
+<?php } ?>
 
 		<!-- / homepage hero section -->
 

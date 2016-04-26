@@ -25,7 +25,7 @@
 							if ( is_post_type_archive('donedeals') ) {
 							    ?>
 							    <h1 class="text-center">Done Deals</h1>
-							    <p class="text-center lead">W Financial was formed in 2003 by experienced real estate professionals who have been successfully making and servicing bridge loans for over 20 years, facilitating partner buyouts, providing renovation or construction funds and responding to special situations where a fast closing is essential.</p>
+							    <p class="text-center lead">Perhaps the best way to get to know us is to browse a few of the hundreds of loans that we have closed during the last 13 years. When you need SWAT team performance to close a time-sensitive or complex deal, W is your go-to lender.</p>
 							    <?php
 							} else {
 							?>

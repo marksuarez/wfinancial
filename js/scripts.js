@@ -1,7 +1,54 @@
 (function ($, root, undefined) {
 	
 	$(function () {
+		$('.hero-toggle, .hero-nav').click(function(){
+	        $('.hero-toggle, .hero-nav, .hero-logo').toggleClass('hero-nav-on');
+	        $('body').toggleClass('no-scroll');
+	    });
+    });
+
+	$(function () {
+		$( "#video2" ).hide();
 		
+		$('video').on('ended',function(){
+      		$( "#video1" ).hide();
+	    	$( "#video2" ).show().play();
+    	});
+   	});
+
+	$(function () {
+				setupRotator();
+			});	
+			function setupRotator()
+			{        
+				if($('.textItem').length > 1)
+				{
+					$('.textItem:first').addClass('current').fadeIn(1000);
+					setInterval(function(){textRotate();}, 3000);
+				}
+			}
+			function textRotate()
+			{
+				var current = $('#headlines > .current');
+				if(current.next().length == 0)
+				{
+          /* disabled looping */
+					current.removeClass('current').fadeOut(1000);
+					$('.textItem:first').addClass('current').fadeIn(1000);
+				}
+				else
+				{
+					current.removeClass('current').fadeOut(1000);
+					current.next().addClass('current').fadeIn(1000);
+				}
+			}
+
+
+
+	$(function () {
+		
+
+		$(window).load(function() {
 		'use strict';
 
 		var flky = new Flickity( '.main-gallery', {
@@ -55,10 +102,13 @@
 			// at end of cells, wraps-around to first for infinite scrolling
 			imagesLoaded: true
 			});
+		});
 	});
 
 	$(function () {
 		
+		$(window).load(function() {
+
 		'use strict';
 
 		var flky = new Flickity( '.references-gallery', {
@@ -112,6 +162,7 @@
 			// at end of cells, wraps-around to first for infinite scrolling
 			imagesLoaded: true
 			});
+		});
 	});
 	
 	$( function () {
@@ -167,7 +218,7 @@
 	});
 	
 
-
+	
 
 	$( function (){
 		var $isotopeContainerDeals = $('#isotopeContainerDeals');
@@ -215,5 +266,11 @@
   		return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1");
 	}
 
+	
+
+
 
 })(jQuery, this);
+
+
+

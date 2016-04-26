@@ -94,7 +94,7 @@ function html5blank_header_scripts()
 
     	// wp_register_script('conditionizr', get_template_directory_uri() . '/js/vendor/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         // wp_enqueue_script('conditionizr'); // Enqueue it!
-
+        
         wp_register_script('modernizr-respond', get_template_directory_uri() . '/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array(), '2.8.3'); // Modernizr
         wp_enqueue_script('modernizr-respond'); // Enqueue it!
 

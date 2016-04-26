@@ -125,7 +125,7 @@
 
 		<section>
 
-			<div class="main-gallery">
+			<div class="main-gallery" data-flickity-options='{ "imagesLoaded": true }'>
 
 
 		<?php $args = array ( 'post_type'    => 'donedeals', ); ?>
