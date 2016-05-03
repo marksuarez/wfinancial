@@ -1,66 +1,10 @@
 <?php get_header(); ?>
 
 	<main role="main">
+
+		<?php get_template_part('pagehead', 'default'); ?>
 		
-		<!-- pageHead -->
-		<section id="breadcrumb" style="position: absolute; width: 100%;">
-			<div>
-				<div class="container text-right">
-					<?php custom_breadcrumbs(); ?>
-				</div>
-			</div>
-		</section>
 
-		<section id="pageHead">
-			<div class="pageHead" style="background: url('http://www.wfinancial.dev/wp-content/uploads/PageTop.png') center center / cover;">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-md-push-2 col-md-8">
-							<h1 class="text-center"><?php the_title(); ?></h1>
-							<?php if( get_field('intro') ): ?>
-							<p class="text-center lead"><?php the_field('intro'); ?></p>
-							<?php endif; ?>
-						</div>
-					</div>
-				</div>				
-			</div>
-		</section>	
-
-		<!-- /pageHead -->
-
-
-
-
-		<!-- BreadCrumb 
-		<section>
-			<div>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="text-center">
-								<?php //custom_breadcrumbs(); ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		 / BreadCrumb -->
-
-<?php if (is_page('sitemap')) { ?>
-	<section>
-		<div class="content">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<?php //echo do_shortcode( '[htmlmap showpages showposts]' ); ?>
-						<?php echo do_shortcode( '[wp_sitemap_page]' ); ?>
-					</div>
-				</div>	
-			</div>
-		</div>
-<?php } else{}; ?>
 
 <?php if (is_page('about')) { ?>
 
@@ -85,37 +29,46 @@
 			</div>
 		</section>
 
-		<section id="overview">
-			<div class="" style="background-color: #f4f4f4; ">
+
+		<section id="overview" class="offset">
+			<div class="light-bg">
 				<div class="container-fluid">
-
-					<div class="row" style="display:flex;">
-						<div class="col-md-6" style="background-color: black; background: url('http://www.wfinancial.dev/wp-content/uploads/10_EAST_34TH.png')  center;">
-
-						</div>
-						<div class="col-md-6">
-							<div style="padding: 100px;">
-							<h3>Overview</h3>
+					<div class="row row-eq-height">
+						
+						<div class="col-md-6 overview-image-column" <?php if( get_field('overview_image') ): ?> style="background-image: url(<?php the_field('overview_image'); ?>);" <?php endif?> ></div>
+						
+						<div class="col-md-6 overview-text-column">
+							<?php if( get_field('overview_title') ): ?>
+								<h3><?php the_field('overview_title'); ?></h3>
+							<?php else: ?>
+								<h3>Overview</h3>
+							<?php endif; ?>
 							<hr class="fancy"/>
-							<p>We understand the issues that can stop many banks in their tracks, and we can see the hidden value that some transactions offer and find a way to work with the borrower and his advisors to find an effective way to structure each deal.</p>
-							<p>Commercial loans provided by W Financial are intended to be a short-term solution that can, for example, enable the purchase and improvement of a vacant, distressed, or non cash-flowing property, or alternatively, refinance existing debt to help stabilize and improve a property prior to a sale or a conventional bank refinancing.</p>
-							<p>In some cases, an opportunity may present itself that requires a buyer to close within 30 days with no mortgage contingency. In such cases, closing with W Financial will "de-stress" the transaction and give the buyer/borrower plenty of breathing room to arrange optimal, low-rate conventional renancing at a later date when time allows.</p>
-							<p>In fact, W Financial never offers to make a bridge loan without first identifying one or more viable exit strategies either via a conventional refinancing or, depending upon the borrower's business plan, the marketing and sale of a property.</p>
-							</div>
+							<?php if( get_field('overview_text') ): ?>
+								<?php echo the_field('overview_text'); ?>
+							<?php endif; ?>
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</section>	
 
-		<section id="senior-partners">
+
+		<section id="senior-partners" class="offset">
 			<div class="content">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="about-title">	
-								<h3 class="text-center">Senior Partners</h3>
-								<p class="lead text-center">W Financial was formed in 2003 by experienced real estate professionals who.</p>
+							<div class="about-title">
+								<?php if( get_field('people_title') ): ?>
+									<h3 class="text-center"><?php the_field('people_title'); ?></h3>
+								<?php else: ?>
+									<h3 class="text-center">Senior Partners</h3>
+								<?php endif; ?>	
+								<?php if( get_field('people_intro') ): ?>
+									<p class="lead text-center"><?php echo the_field('people_intro'); ?></p>
+								<?php endif; ?>	
 								<hr class="fancy"/>
 							</div>
 						</div>
@@ -141,17 +94,19 @@
 						<div class="col-md-4">
 
 							<a href="#<?php echo $counter; ?>" data-toggle="modal" class="card-a-wrap">
-								<div class="card partner-card">	
-									<img class ="img-responsive" src="<?php echo $grid_portrait; ?>"/>
-									<div class="card-inner">	
-									<h4><?php echo $name; ?></h4>
-									<h6><?php echo $role; ?></h6>
+								<div class="card-wrapper-partners">
+									<div class="card partner-card">	
+										<img class ="img-responsive" src="<?php echo $grid_portrait; ?>"/>
+										<div class="card-inner">	
+										<h4><?php echo $name; ?></h4>
+										<h6><?php echo $role; ?></h6>
+										</div>
 									</div>
 								</div>
 							</a>
 							<div id="<?php echo $counter; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
-									<div class="modal-content" style="background: url('http://www.wfinancial.dev/wp-content/uploads/10_EAST_34TH.png') center center /cover;">
+									<div class="modal-content" <?php if( get_sub_field('wide_portrait') ): ?> style="background-image: url(<?php the_sub_field('wide_portrait'); ?>);" <?php endif?>>
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 											
@@ -198,56 +153,55 @@
 			</div>
 		</section>
 
-		<!--<hr/>-->
 
-		<section id="references">
-			<div class="content" style="background-color: #f6f7f7;">
+		<section id="references" class="offset">
+			<div class="content light-bg">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="about-title">
-								<h3 class="text-center">References</h3>
-								<p class="lead text-center">W Financial was formed in 2003 by experienced real estate professionals who.</p>
+								<?php if( get_field('references_title') ): ?>
+									<h3 class="text-center"><?php the_field('references_title'); ?></h3>
+								<?php else: ?>
+									<h3 class="text-center">References</h3>
+								<?php endif; ?>	
+								<?php if( get_field('references_intro') ): ?>
+									<p class="lead text-center"><?php echo the_field('references_intro'); ?></p>
+								<?php endif; ?>	
 								<hr class="fancy"/>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="references-gallery" style="position: relative; background-color: transparent;">
+				<div class="references-gallery">
 					
 					<?php if(have_rows('references')):?>
-					<?php while( have_rows('references') ): the_row(); 
+						<?php while( have_rows('references') ): the_row(); 
 
-					$person = get_sub_field('person');
-					$quote = get_sub_field('quote');
+						$person = get_sub_field('person');
+						$quote = get_sub_field('quote');
 
-					?>
+						?>
 					<div class="card-wrapper-references">
 						<div class="card">
 							<div class="card-inner">
-							<!--<div class="container">-->
-								<!--<div class="row">-->
-									<!--<div class="col-md-6">-->
-										<h6>Reference</h6>
-										<hr/ style="height: 3px; background-color: #D95E5E; border: 0; width: 40px; margin: 5px 0px;">
-										<div>
-											<?php echo $quote ?>
-											<h6 style="font-size:13px; line-height: 19px;"><?php echo $person ?></h6>
-										</div>
-									<!--</div>-->
-								<!--</div>-->
-							<!--</div>-->
+								<h6>Reference</h6>
+								<hr class="fancy"/>
+								<div>
+									<?php echo $quote ?>
+									<h6 class="small-h6"><?php echo $person ?></h6>
+								</div>
 							</div>
 						</div>
 					</div>	
 
 
-					<?php endwhile; ?>
+						<?php endwhile; ?>
 
-					<?php else: ?>
+						<?php else: ?>
 
-					<h1>There are no FAQs.</h1>
+						<h1>There are no FAQs.</h1>
 
 					<?php endif; ?>
 
@@ -255,16 +209,21 @@
 			</div>	
 		</section>
 
-		<!--<hr/>-->
 
-		<section id="affiliates">
+		<section id="affiliates" class="offset">
 			<div class="content">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="about-title">
-								<h2 class="text-center">Affiliates</h2>
-								<p class="lead text-center">W Financial was formed in 2003 by experienced real estate professionals who.</p>
+								<?php if( get_field('affiliates_title') ): ?>
+									<h3 class="text-center"><?php the_field('affiliates_title'); ?></h3>
+								<?php else: ?>
+									<h3 class="text-center">Affiliates</h3>
+								<?php endif; ?>	
+								<?php if( get_field('affiliates_intro') ): ?>
+									<p class="lead text-center"><?php echo the_field('affiliates_intro'); ?></p>
+								<?php endif; ?>
 								<hr class="fancy"/>
 							</div>
 						</div>
@@ -277,8 +236,10 @@
 						</div>
 						<div class="col-md-push-1 col-md-6">
 							
-							<div class="card" style="padding: 110px 170px; border-top: none;">
-								<img class="img-responsive" src="http://www.wfinancial.dev/wp-content/uploads/winter-logo.png"/>
+							<div class="card affiliates-logo-card">
+								<?php if( get_field('affiliates_logo') ): ?>
+									<img class="img-responsive" src="<?php echo the_field('affiliates_logo'); ?>"/>
+								<?php endif; ?>
 							</div>
 
 						</div>
@@ -291,7 +252,6 @@
 		<!-- /pageContent (About Page) Dynamic-->
 
 <?php } else{}; ?>
-
 
 
 
@@ -321,177 +281,83 @@
 						<div class="col-md-push-1 col-md-7">
 
 							<?php if (is_page('loan-programs')) { ?>
-								<h2>Loan Overview</h2>
-								<p class="lead">W Financial <strong>commercial mortgage bridge loans</strong> are designed to help the Borrower accomplish immediate real estate goals and then, depending upon the borrower’s business plan, to exit the bridge loan either upon the sale of the property or by refinancing the bridge loan with an inexpensive bank loan. Our affiliate, <a href="#">Winter & Company</a> specializes in arranging such conventional financing.</p> 
-								<p class="lead">As a provider of bridge loans for investment, income-producing and owner-occupied real estate, W Financial will help you or your client execute a viable business plan and exit strategy. Vacant/distressed property with a value-added business plan will also be considered.</p>
+
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
+								
 							<?php } else{}; ?>
 							
 							<?php if (is_page('loan-criteria')) { ?>
-								<h2>Loan Criteria</h2>
-								<p>Our strong preference is always to provide senior debt on cash-flowing properties, or properties that will or can readily become cash-flowing. We target loans between $500,000 and $30,000,000.  Larger loan applications are also welcome. While the majority of the commercial bridge loans we originate and service are in the New York Metropolitan area, if a loan meets our criteria, we are interested in loan opportunities in primary markets nationwide.</p>
-								<p>We provide first mortgage bridge loan financing for the following property types:</p>
-								<ul class="list-group custom-list-group">
-									<li class="list-group-item">Multi-family / Apartment buildings</li>
-									<li class="list-group-item">Mixed-use properties</li>
-									<li class="list-group-item">Commercial and retail co-ops and condominiums</li>
-									<li class="list-group-item">Retail / Shopping Centers</li>
-									<li class="list-group-item">Acquisition of performing of defaulted notes</li>
-									<li class="list-group-item">Office buildings</li>
-									<li class="list-group-item">Warehouse / Industrial</li>
-									<li class="list-group-item">Self-storage</li>
-									<li class="list-group-item">Net-leased</li>
-									<li class="list-group-item">Owner-occupied</li>
-								</ul>
-								<p>Our borrower must have a viable business plan and exit strategy along with relevant experience, net worth and liquidity.</p>
+								
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
 
 							<?php } else{}; ?>
 
 							<?php if (is_page('loan-products')) { ?>
-								<h2>Loan Products</h2>
-								<p class="lead">W Financial primarily makes first mortgage bridge loans.</p>
-					
-								<ul class="list-group custom-list-group">
-									<li class="list-group-item" style="padding: 30px;">
-										<p>We will consider second mortgages and mezzanine loans on a highly selective basis
-										To discuss or submit new loan opportunities, contact</p>
 
-										David Heiden<br/>
-										Phone: <a href="#">212-684-2283 x114</a><br/>
-										Email: <a href="mailto:david@w-financial.com">david@w-financial.com</a>
-									</li>
-								</ul>
-
-								<ul class="list-group custom-list-group">
-									<li class="list-group-item" style="padding: 30px;">
-										<p>For other information about W Financial Fund, LP, contact:</p>
-
-										Gregg Winter<br/>
-										Phone: <a href="#">212-684-2283 x114</a><br/>
-										Email: <a href="mailto:david@w-financial.com">david@w-financial.com</a>
-									</li>
-								</ul>
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
 
 							<?php } else{}; ?>
 
 
 							<?php if (is_page('terms-and-rates')) { ?>
-								<h2>Loan Terms and Rates</h2>
-								<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>					
-								<hr/>
+								
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									
+									<?php the_content(); ?>								
+						
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
+								<br/>
+
 								<div class="panel-group custom-panel-collapse" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#1" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Interest rates
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        W's rates typically fall within the range between 8% and 10% depending upon the usual factors such as: Quality and experience of sponsorship, location, cash flow (or the lack thereof), the nature of the borrower’s business plan and the amount of time necessary to execute same. Our loans are structured with a floating rate based on a spread above Prime.
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#2" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Term
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        While the most typical loan term is one year, we have originated loans with terms ranging from six months to five years.
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#3" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Loan-To-Value
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        For first mortgages, W Financial will typically lend up to 75% loan to value - to be determined on a case-by-case basis. Mezzanine and second mortgage loans will only be considered on cash-flowing properties for strong sponsors with real expertise, net worth, liquidity and meaningful guarantees.
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#4" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Prepayment
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        Our loans typically have no prepayment penalty after a short lockout period.
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#5" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Points
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        Typically 2%. In some cases part of the origination fee may be structured as an exit fee (deferred until the loan is repaid).
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#6" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Recourse
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        Most loans are structured with full recourse.
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#7" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Brokers
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        Most loans are introduced to W Financial by our valuable network of mortgage brokers. Brokers are always protected. We always welcome the opportunity to expand our network of commercial mortgage brokers, so call or email us with your bridge loan opportunities for a fast, efficient and reliable response.
-									      </div>
-									    </div>
-								  	</div>
-								  	<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									      <h6 class="panel-title">
-									        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#8" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-									          Payment Reserver
-									        </a>
-									      </h6>
-									    </div>
-									    <div id="8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-									      <div class="panel-body">
-									        Depending upon the type of loan request, the nature of the business plan and the financial strength of the Sponsor, we may elect to structure the loan with an Interest Reserve to cover a portion of the monthly interest payments.
-									      </div>
-									    </div>
-								  	</div>
+
+								<?php if(have_rows('loan_terms_and_rates')):?>
+								<?php $counter = 0; ?>
+								<?php while( have_rows('loan_terms_and_rates') ): the_row(); 
+									$heading = get_sub_field('heading');
+									$body = get_sub_field('body');
+								?>
+							
+								<div class="panel panel-default">
+								    <div class="panel-heading" role="tab" id="headingOne">
+								      <h6 class="panel-title">
+								        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $counter ?>" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+								          <?php echo $heading ?>
+								        </a>
+								      </h6>
+								    </div>
+								    <div id="<?php echo $counter ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+								      <div class="panel-body">
+								        <?php echo $body ?>
+								      </div>
+								    </div>
+							  	</div>
+
+								<?php $counter++; ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<h1>There are no FAQs.</h1>
+								<?php endif; ?>
+								
 								</div>
+
+								<?php edit_post_link(); ?>
 
 							<?php } else{}; ?>
 
@@ -502,57 +368,40 @@
 
 
 							<?php if (is_page(21)) { ?>
-								<h2>Forms Overview</h2>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<hr/>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<ul>
-									<li>hello</li>
-									<li>hello</li>
-									<li>hello</li>
-								</ul>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
 
-								<ol>
-									<li>hello</li>
-									<li>hello</li>
-									<li>hello</li>
-								</ol>
-								<hr/>
-								<h1>Vestibulum id ligula porta</h1>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
-								<h2>Vestibulum id ligula porta</h2>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
-								<h3>Vestibulum id ligula porta</h3>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
-								<h4>Vestibulum id ligula porta</h4>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
-								<h5>Vestibulum id ligula porta</h5>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
-								<h6>Vestibulum id ligula porta</h6>
-								<p>Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
+									
 
 							<?php } else{}; ?>
+
 
 							<?php if (is_page(258)) { ?>
-								<h2>Downloads</h2>
-								<p>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-								<hr/>
-								<ul class="list-group custom-list-group">
-									<li class="list-group-item"><a href="#">1</a></li>
-									<li class="list-group-item"><a href="#">1</a></li>
-									<li class="list-group-item"><a href="#">1</a></li>
-									<li class="list-group-item"><a href="#">1</a></li>
-									<li class="list-group-item"><a href="#">1</a></li>
-									<li class="list-group-item"><a href="#">1</a></li>
-								</ul>
+
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
+								
 							<?php } else{}; ?>
+
+
 
 							<?php if (is_page(256)) { ?>
 								
-								<h2>Submission Checklist</h2>
-								<p>Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
 								<hr/>
 								<div class="table-responsive">
 							        <table class="table table-hover">
@@ -610,21 +459,32 @@
 
 						        </table>   
 						      </div>
-
+						      <?php edit_post_link(); ?>
+							
 							<?php } else{}; ?>
 
+
+
 							<?php if (is_page(240)) { ?>
-								<h2>Online Form</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-								<hr/>
-								<?php echo do_shortcode('[gravityform id=2 title=false description=false ajax=true tabindex=49]'); ?>
+
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
+							
 							<?php } else{}; ?>
 
 							<?php if (is_page(236)) { ?>
-								<h2>Mailing List</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>								
-								<hr/>
-								<?php echo do_shortcode('[gravityform id=1 title=false description=false ajax=true tabindex=49]'); ?>
+								
+								<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+									<?php the_content(); ?>								
+									<?php edit_post_link(); ?>
+								<?php endwhile; ?>
+								<?php else: ?>
+								<?php endif; ?>
+
 							<?php } else{}; ?>
 
 
@@ -639,7 +499,6 @@
 	
 
 
-
 <?php if (is_page('press')) { ?>
 
 		<!-- pageContent (Press Page) (DYNAMIC LOOP) -->
@@ -647,8 +506,8 @@
 		<section>
 			<div class="content">
 				<div class="container">
-					<div class="row pressFilters">
-						<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-2 pressFilters">
 							<ul>
 								<!-- Populates Select Dropdown Filter with the past 8 years -->
 								<li><a href="#"><?php echo date("Y")?></a></li>
@@ -682,13 +541,18 @@
 						?>
 
 						<div class="col-md-6 item <?php echo $year; ?>">
-							<div class="card">
-								<div class="card-inner">
-									<h4><?php echo $month; ?>, <?php echo $year; ?></h4>
-									<p><?php echo $title; ?></p>
-									<h6><a href="<?php echo $link; ?>"><?php echo $link_text; ?></a></h6>
+							<div class="card-wrapper-press">
+								<div class="card card-press"
+									data-bottom-top="@myAttr: 0;" 
+									data-bottom-center="@myAttr: 1;"
+								>
+									<div class="card-inner">
+										<h4><?php echo $month; ?>, <?php echo $year; ?></h4>
+										<p><?php echo $title; ?></p>
+										<h6><a href="<?php echo $link; ?>"><?php echo $link_text; ?></a></h6>
+									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 
 						<?php endwhile; ?>
@@ -710,48 +574,45 @@
 
 
 
+<?php if (is_page('sitemap')) { ?>
+	<section>
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<?php //echo do_shortcode( '[htmlmap showpages showposts]' ); ?>
+						<?php echo do_shortcode( '[wp_sitemap_page]' ); ?>
+					</div>
+				</div>	
+			</div>
+		</div>
+
+<?php } else{}; ?>
+
 
 
 <?php if (is_page('contact')) { ?>
 
 		<section>
-			<div class="">
+			<div class="contact">
 				<div class="container-fluid">
 					<div class="row no-gutter">
-						<div class="col-md-6">
-							<div id="map-container" style="min-height: 500px;"></div>
+						<div class="col-md-6 hidden-xs hidden-sm">
+							<div id="map-container" class="map-container"></div>
 						</div>
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-2">
 								</div>
 								<div class="col-md-8">
-									<ul class="list-group custom-list-group">
-										<li class="list-group-item">
-											<h6>Contact Us</h6>
-											<p>W Financial Fund, LP<br/>
-											149 Madison Avenue, Suite 701<br/>
-											New York, NY 10016</p>
-										</li>
-										<li class="list-group-item">
-											<h6>To Discuss Or Submit New Loan Opportunities, Contact:</h6>
-											<p>David Heiden<br/>
-												Phone: 212-684-2283 x114<br/>
-												Fax: 212-532-1222<br/>
-												Email: david@w-financial.com</p>
-										</li>
-										<li class="list-group-item">
-											<h6>For Other Information About W Financial Fund, Lp, Contact:</h6>
-											<p>Gregg Winter<br/>
-												Phone: 212-684-2283 x111<br/>
-												Email: gregg@w-financial.com</p>
-										</li>
-										</li>
-										<li class="list-group-item">
-											<p>Stay informed about our special commercial loan programs and hear about our recently closed transactions!
-											<p><a href="#">Click here to join our mailing list</a></p>
-										</li>
-									</ul>
+									<div class="contact-wrapper">
+										<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+										<?php the_content(); ?>								
+										<?php edit_post_link(); ?>
+										<?php endwhile; ?>
+										<?php else: ?>
+										<?php endif; ?>
+										</div>
 								</div>
 								<div class="col-md-2">
 								</div>
@@ -765,7 +626,6 @@
 		</section>
 
 <?php } else{}; ?>
-
 
 
 
@@ -788,10 +648,6 @@
 		<!-- /pagecontent (search page) -->
 
 <?php } else{}; ?>
-
-
-
-
 
 
 
@@ -857,10 +713,7 @@
 
 		<!-- /pagecontent (accordians page) -->
 
-
 <?php } else{}; ?>
-
-
 
 
 
@@ -873,7 +726,7 @@
 
 					<div class="row">
 						<div class="col-md-3">
-							<div class="text-center">
+							<div class="text-center margin-bottom-50">
 								<div class="btn-group btn-group-justified glossary">
 								
 									<?php $letters = range('a','e'); ?>
@@ -938,7 +791,7 @@
 							<?php foreach ($letters as $i) { ?>
 							<?php $iup = strtoupper($i); ?>
 							
-							<h2 id="<?php echo $i ?>"><?php echo $iup ?></h2>
+							<h2 id="<?php echo $i ?>" class="offset"><?php echo $iup ?></h2>
 							<hr/>
 							
 							
@@ -973,9 +826,6 @@
 		</section>
 
 <?php } else{}; ?>
-
-
-
 
 
 <!--

@@ -8,7 +8,7 @@
 
 						<div class="text-center footerGreenLogo">
 							<a href="#">
-								<img src="http://www.wfinancial.dev/wp-content/uploads/logo1-white.png" href="#"/>
+								<img src="<?php echo site_url(); ?>/wp-content/uploads/logo1-white.png" href="#"/>
 							</a>
 						</div>
 						<h2 class="text-center">Special situation financing for commercial real estate.</h2>
@@ -56,8 +56,8 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="text-center associationLogos">
-									<a href="https://www.rebny.com/content/rebny/en.html/"><img src="http://www.wfinancial.dev/wp-content/uploads/rebny.jpg"/></a>
-	                  				<a href="http://www.rela.org/"><img src="http://www.wfinancial.dev/wp-content/uploads/rela.png"/></a>
+									<a href="https://www.rebny.com/content/rebny/en.html/"><img src="<?php echo site_url(); ?>/wp-content/uploads/rebny.jpg"/></a>
+	                  				<a href="http://www.rela.org/"><img src="<?php echo site_url(); ?>/wp-content/uploads/rela.png"/></a>
 								</div>
 								<p class="copyright text-center">
 									Copyright &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved.
@@ -67,12 +67,14 @@
 					</div>
 				</div>
 			</section>
-
+			<a id="backToTop" class="back-to-top" data-scroll href="#top"><i class="fa fa-angle-double-up"></i></a>
 		</footer>
 		<!-- /footer -->
 
 		<?php wp_footer(); ?>
+		
 
+	</div> <!-- close scroll-body -->
 		<!-- analytics 
 		<script>
 		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){

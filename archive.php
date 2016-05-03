@@ -16,8 +16,18 @@
 		</section>
 		-->
 
-		<section id="pageHead">
-			<div class="pageHead" style="background: url('http://www.wfinancial.dev/wp-content/uploads/PageTop.png') center center / cover;">
+		<section id="pagehead">
+
+			<div class="breadcrumb-wrapper breadcrumb-in-pagehead">
+				<div class="container text-right">
+					<?php custom_breadcrumbs(); ?>
+				</div>
+			</div>
+
+			<div class="pagehead" style="background-image: url(<?php echo site_url() ?>/wp-content/uploads/PageTop.png);"
+				data-100-top="background-position: 50% 50px;"
+				data--600-top="background-position: 50% -100px;"
+				>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-push-2 col-md-8">
@@ -49,6 +59,13 @@
 				<div class="container">
 					<div id="isotopeContainerDeals" class="row">
 
+						<?php
+							// we add this, to show all posts in our
+							// Glossary sorted alphabetically
+							$posts = query_posts($query_string .
+							'&orderby=menu_order&order=asc&posts_per_page=8'); 
+						?>
+
 						<?php if (have_posts()): while (have_posts()) : the_post(); 
 
 						// vars
@@ -60,6 +77,7 @@
 						$repeat_borrower = get_field('repeat_borrower');
 						$featured = get_field('featured');
 						$orientation = get_field('orientation');
+						$grid_image = get_field('grid_image');
 						?>
 
 							
@@ -68,11 +86,9 @@
 								
 								<div class="card-wrapper-donedeals">
 
-								<div class="card deal-card
-
-									<?php if ($orientation === 'tall') { echo 'deal-card-tall'; } ?> 
-
-								" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 1) 100%), url(http://www.wfinancial.dev/wp-content/uploads/10_EAST_34TH.png) center center/cover;">
+								<div class="card deal-card <?php if ($orientation === 'tall') { echo 'deal-card-tall'; } ?>" style="background-image: url(<?php echo $grid_image ?>);"
+									data-bottom-top="@myAttr: 0;" data-bottom-center="@myAttr: 1;"
+									>
 									
 									<div class="card-inner">
 										<?php if($repeat_borrower) { ?>

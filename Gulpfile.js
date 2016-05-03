@@ -1,10 +1,19 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var cleanCSS = require('gulp-clean-css');
+
+var input = 'scss/**/*.scss';
+var output = '';
 
 gulp.task('styles', function() {
-	gulp.src('scss/**/*.scss')
+	return gulp
+	.src(input)
+	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
-	.pipe(gulp.dest(''))
+	.pipe(cleanCSS({compatibility: 'ie8'}))
+	.pipe(sourcemaps.write('./maps'))
+	.pipe(gulp.dest(output))
 });
 
 //Watch task

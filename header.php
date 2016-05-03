@@ -13,35 +13,64 @@
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
 
 		<?php wp_head(); ?>
-
 	</head>
 	<body <?php body_class(); ?>>
+		<div id="skrollr-body">
+		<div id="wptime-plugin-preloader"></div>
+		
+		<div id="top"></div>
 
 
+	<!-- homepage hero section -->
+
+	<?php if(is_front_page() ) { ?>
 
 
+			<!-- nav -->
+	      	<nav class="hero-nav" role="navigation">
+	          	<?php
+			            wp_nav_menu( array(
+			                'menu'              => 'fullscreen',
+			                'theme_location'    => 'primary',
+			                'depth'             => 2,
+			                'container'         => 'div',
+			                'container_class'   => '',
+			        		'container_id'      => '',
+			                'menu_class'        => '',
+			                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+			                'walker'            => new wp_bootstrap_navwalker())
+			            );
+			        ?>
+	     	</nav>
+	      	<!-- /nav -->
 
+	      	<!-- Responsive Navigation Hamburger Toggle -->
+	      	<div class="hero-toggle" title="Menu">
+	          	<div class="bar1"></div>
+	          	<div class="bar2"></div>
+	          	<div class="bar3"></div>
+	      	</div>  
+	      	<!-- / -->
 
-		<!-- homepage hero section -->
-
-<?php if(is_front_page() ) { ?>
-
-		<section id="hero">
+		<section id="hero" data-top="opacity:1;" data-1000="opacity:0;">
 
 			<div class="hero">
+
+
 
 				<!-- Fullscreen video -->
 				<div class="video-wrapper">
 
 					<video id="video1" class="video-bg" preload="auto" muted autoplay poster="http://marksupernet.com/Recutvid/poster.png">
-		            	<source src="http://marksupernet.com/Recutvid/Option2_light.webmsd.webm"/>
-		            	<source src="http://marksupernet.com/Recutvid/Option2_light.mp4"/>
-		            	<source src="http://marksupernet.com/Recutvid/Option2_light.oggtheora.ogv">
+		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.webm"/>
+		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.mp4"/>
+		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.ogv/">
 	            	</video>
 
 	            	<video id="video2" class="video-bg" preload="auto" muted autoplay loop poster="http://marksupernet.com/Recutvid/poster.png">
-		            	<source src="http://www.meingottdeingott.de/videos/MEGODEGO_HG_loop.webm"/>
-		            	<source src="http://www.meingottdeingott.de/videos/MEGODEGO_HG_loop.mp4"/>
+		            	<source src="http://marksuarez.github.io/video/Option_1/Option1_LowRes.webm"/>
+		            	<source src="http://marksuarez.github.io/video/Option_1/Option1_LowRes.mp4"/>
+		            	<source src="http://marksuarez.github.io/video/Option_1/Option1_LowRes.ogv"/>
 	            	</video>	
 
             	</div>
@@ -58,61 +87,43 @@
 		            <div class="hero-navbar">
 			            <!-- logo -->
 		            	<div class="hero-logo">
-		            		<a href="index.html"><img src="<?php echo get_template_directory_uri() . '/img/logo1.png'?>"/></a>
+		            		<a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri() . '/img/logo1-white.png'?>"/></a>
 		            	</div>
-		              <!-- /logo -->
+		              	<!-- /logo -->
+	            	</div>  
+	            	
+	            	<!-- / hero navbar -->
 
+		            <!-- Rotator -->
+					<div class="container">
+		                <ul id="headlines">
+		                  <li class="textItem"><h1>Commercial real estate financing</h1></li>
+		                  <li class="textItem"><h1>At the speed of New York.</h1></li>
+		                  <li class="textItem"><h1><img src="<?php echo get_template_directory_uri() . '/img/logo2-white.png'?>"/></h1></li>
+		                </ul>
+		            </div>
+		            <!-- / Rotator -->
 
-		              
-	            </div>  
-	            <!-- / hero navbar -->
+		            <a class="scroll text-center" href="#header" data-scroll><h6>Scroll</h6><i class='fa fa-angle-double-down' id='scroll-icon'></i></a>
 
-	            <!-- Rotator -->
-				<div class="container">
-	                <ul id="headlines">
-	                  <li class="textItem"><h1>Commercial real estate financing</h1></li>
-	                  <li class="textItem"><h1>At the speed of New York.</h1></li>
-	                  <li class="textItem"><h1><img src="<?php echo get_template_directory_uri() . '/img/logo2.png'?>"/></h1></li>
-	                </ul>
-	            </div>
-	            <!-- / Rotator -->
+        		</div>
+            	
+            	<!-- /// Everything Else -->
 
-
-        	</div>
-            <!-- /// Everything Else -->
-
+			
 
 			</div>
 
-<!-- nav -->
-		              <nav class="hero-nav" role="navigation">
-		                  <ul>
-		                    <li><a class="active" href="index.html">Home</a></li>
-		                    <li><a href="about.html">About</a></li>
-		                    <li><a href="#">Loan Programs</a></li>
-		                    <li><a href="doneDeals.html">Done Deals</a></li>
-		                    <li><a href="press.html">Press</a></li>
-		                    <li><a href="#">Forms</a></li>
-		                    <li><a href="#">Search</a></li>
-		                    <li><a href="#">Contact</a></li>
-		                  </ul>
-		              </nav>
-		              <!-- /nav -->
+
+
 			
-		              		              <!-- Responsive Navigation Hamburger Toggle -->
-		              <div class="hero-toggle" title="Menu">
-		                  <div class="bar1"></div>
-		                  <div class="bar2"></div>
-		                  <div class="bar3"></div>
-		              </div>  
-		              <!-- / -->
 			
 
 		</section>
 
-<?php } ?>
+	<?php } ?>
 
-		<!-- / homepage hero section -->
+	<!-- / homepage hero section -->
 
 
 
@@ -120,8 +131,8 @@
 
 		
 		<!-- header -->
-		<header>
-			<nav id="navbar" class="navbar navbar-default navbar-fluid-top text-uppercase" role="navigation">
+		<header id="header">
+			<nav id="navbar" role="navigation" class="navbar navbar-default navbar-fixed-top text-uppercase">
 					
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -151,19 +162,20 @@
 			            );
 			        ?>
 		    	</div>
-			</nav>
-			<div class="searchbardiv" id="formsearch">
+		    	<div class="searchbardiv" id="formsearch">
 				<div class="container">
 	        	<form class="search" role="search" action="<?php echo home_url(); ?>" method="get" id="searchform"  >
 	            	<div class="input-group">
 	              		<input type="text" id="searchbox" class="form-control" name="s" id="s">
 	              		<div class="input-group-btn">
-	                		<button class="btn btn-default"  id="searchsubmit"  type="submit">
+	                		<button class="btn btn-primary"  id="searchsubmit"  type="submit">
 	                  		<strong>Search</strong></button>
 	              		</div>
 	            	</div>
 	          	</form>
 	          	</div>
-			</div>        
+			</div> 
+			</nav>
+			       
 		</header>		        
 		<!-- /header -->

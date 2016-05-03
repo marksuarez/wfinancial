@@ -10,145 +10,46 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-push-2 col-md-8">
-							<h1 class="text-center">
-								What's our deal?
-							</h1>
-							<p class="text-center lead">
-								<?php the_field('intro') ?>
-							</p>
-							<div class="text-center">
-								<a href="#" class="btn btn-primary">
-									See Done Deals
-								</a>
-							</div>	
+							<h1 class="text-center">What's our deal?</h1>
+							<p class="text-center lead"><?php the_field('intro') ?></p>
+							<div class="text-center"><a href="<?php echo site_url(); ?>/donedeals" class="btn btn-primary">See Done Deals</a></div>	
 						</div>
 					</div>
 				</div>	
 			</div>
-		<section>	
+		</section>	
 
 		<!-- /What's Our Deal Section -->
 
-		<!-- DealSlider Section
-
-		<section>
-			<div class="main-gallery">
-				
-				<div class="gallery-cell">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-push-8 col-md-4">
-								<div class="">	
-									<h3>
-										Featured Deals
-									</h3>
-									<hr class="fancy"/>
-									<h2>
-										$100,000,000 Bridge Loan
-									</h2>
-									<h4>
-										Queens
-									</h4>
-									<p>
-										Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-									</p>
-									<a href="#">
-										View This Deal
-									</a>
-								</div>	
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="gallery-cell">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-push-8 col-md-4">
-								<div class="">	
-									<h3>
-										Featured Deals
-									</h3>
-									<hr class="fancy"/>
-									<h2>
-										$100,000,000 Bridge Loan
-									</h2>
-									<h4>
-										Queens
-									</h4>
-									<p>
-										Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-									</p>
-									<a href="#">
-										View This Deal
-									</a>
-								</div>	
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="gallery-cell">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-push-8 col-md-4">
-								<div class="">	
-									<h3>
-										Featured Deals
-									</h3>
-									<hr class="fancy"/>
-									<h2>
-										$100,000,000 Bridge Loan
-									</h2>
-									<h4>
-										Queens
-									</h4>
-									<p>
-										Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-									</p>
-									<a href="#">
-										View This Deal
-									</a>
-								</div>	
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-		</section>
-
-		/Dealslider Section -->
 
 		<!-- DealSlider Section (Dynamic) -->
 
 		<section>
 
-			<div class="main-gallery" data-flickity-options='{ "imagesLoaded": true }'>
+			<div class="main-gallery">
 
 
-		<?php $args = array ( 'post_type'    => 'donedeals', ); ?>
-		<?php $query = new WP_Query( $args ); ?>
-		<?php if ( $query->have_posts()): while ( $query->have_posts()) :  $query->the_post(); ?> 
-		<?php
-			// vars
-			$deal_amount = get_field('deal_amount');
-			$deal_type = get_field('deal_type');
-			$deal_location = get_field('deal_location');
-			$deal_short_description = get_field('deal_short_description');
-			$deal_long_description = get_field('deal_long_description');
-			$repeat_borrower = get_field('repeat_borrower');
-			$featured = get_field('featured');
-			$full_image = get_field('full_image');
-		?>	
+			<?php $args = array ( 'post_type'    => 'donedeals', ); ?>
+			<?php $query = new WP_Query( $args ); ?>
+			<?php if ( $query->have_posts()): while ( $query->have_posts()) :  $query->the_post(); ?> 
+			<?php
+				// vars
+				$deal_amount = get_field('deal_amount');
+				$deal_type = get_field('deal_type');
+				$deal_location = get_field('deal_location');
+				$deal_short_description = get_field('deal_short_description');
+				$deal_long_description = get_field('deal_long_description');
+				$repeat_borrower = get_field('repeat_borrower');
+				$featured = get_field('featured');
+				$full_image = get_field('full_image');
+			?>	
 
 			<?php if($featured) : ?>
 				
-				<div class="gallery-cell" style="position: absolute; left: 0%; background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65098) 100%), url('<?php echo $full_image ?>') 50% 50% / cover;">
+				<div class="gallery-cell" style="background-image: url('<?php echo $full_image ?>');">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-push-8 col-md-4">
+							<div class="col-md-push-7 col-md-4">
 								<div class="card-wrapper-featured">
 									<div class="card">
 										<div class="card-inner">
@@ -176,10 +77,10 @@
 				</div>
 				
 			<?php else: endif; ?>
-		<?php endwhile; ?>
-		<?php else: ?>
-		<?php endif; ?>
-		<?php wp_reset_postdata(); ?>
+			<?php endwhile; ?>
+			<?php else: ?>
+			<?php endif; ?>
+			<?php wp_reset_postdata(); ?>
 
 			</div>
 
@@ -187,9 +88,6 @@
 
 		<!-- /DealSlider Section (Dynamic) -->
 						
-
-
-
 
 		<!-- Contact Section -->
 
@@ -205,9 +103,7 @@
 								</h4>
 								<p>
 									<a href="#">212-684-2283</a><br/>
-									<a href="#">info@w-financial.com</a>
-								</p>
-								<p>
+									<a href="#">info@w-financial.com</a><br/>
 									149 Madison Avenue, Suite 701<br/>
 									New York, NY 10016
 								</p>
