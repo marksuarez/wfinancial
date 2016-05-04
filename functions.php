@@ -110,7 +110,7 @@ function html5blank_header_scripts()
         wp_register_script('isotope', get_template_directory_uri() . '/js/vendor/isotope.pkgd.min.js', array(), '1.0.0', true); // Isotope
         wp_enqueue_script('isotope'); // Enqueue it!
 
-         wp_register_script('imagesLoaded', get_template_directory_uri() . '/js/vendor/imagesloaded.pkgd.min.js', array(), '4.1.0', true); // ImagesLoaded
+        wp_register_script('imagesLoaded', get_template_directory_uri() . '/js/vendor/imagesloaded.pkgd.min.js', array(), '4.1.0', true); // ImagesLoaded
         wp_enqueue_script('imagesLoaded'); // Enqueue it!
 
         wp_register_script('skrollr', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js', array(), '0.6.30', true); // Skrollr

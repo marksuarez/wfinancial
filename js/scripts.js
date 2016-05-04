@@ -12,11 +12,24 @@ var go = (function ($, root, undefined) {
 	* Initialize Skrollr.js only if on desktop 
 	*/
 	initSkrollr = function () {
-		if (!window.matchMedia('(max-width: 768px)').matches) {
+		if (!window.matchMedia('(max-width: 991px)').matches) {
 			skrollr.init({forceHeight: false});
 		}
 	},
 
+	/* 
+	* Affix Side Nav 
+	*/
+	affixSideNav = function () {
+		if (!window.matchMedia('(max-width: 991px)').matches) {
+			$('.custom-nav-stacked').affix({
+	      		offset: {
+	        		top: $('#navbar').height() + $('#pagehead').height() - 50,
+	        		bottom: $('footer').height() + 100,
+	      		}
+			});	
+		}
+	},
 
 	/* 
 	* Initialize Isotope for press and donedeals
@@ -379,6 +392,7 @@ var go = (function ($, root, undefined) {
 		initFlickity();
 		fixHeight();
 		initIsotope();
+		affixSideNav();
 
 		$( window ).on( 'resize.go', initResponsiveVideo );
 		$( window ).on( 'scroll.go', scrollToTopArrow );
@@ -391,3 +405,4 @@ var go = (function ($, root, undefined) {
 })( jQuery, this );
 
 jQuery( go.ready );
+

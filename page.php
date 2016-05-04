@@ -262,7 +262,6 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3">
-
 							<?php if (is_page(19) || in_array(19, $post->ancestors)) {?>
 								<?php wp_nav_menu( array(
 								    'menu' => 'Loan Programs',
@@ -276,7 +275,6 @@
 								    'menu_class' => 'nav-pills nav-stacked custom-nav-stacked',
 								) );?>
 							<?php }; ?>	
-
 						</div>
 						<div class="col-md-push-1 col-md-7">
 

@@ -9,8 +9,8 @@
 			</div>
 
 			<div class="pagehead" <?php if( get_field('page_header_background') ): ?> style="background-image: url(<?php the_field('page_header_background'); ?>);" <?php endif?> 
-				data-100-top="background-position: 50% 50px;"
-				data--600-top="background-position: 50% -100px;"
+				data-100-top="background-position: center bottom 0px;"
+				data--600-top="background-position: center bottom -200px;"
 				>
 				<div class="container">
 					<div class="row">

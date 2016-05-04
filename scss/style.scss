@@ -88,6 +88,11 @@ body {
 	background-color: $brand-info;
 }
 
+// Font Smoothing
+body {
+	position: relative;
+}
+
 // No Gutter Class for row and columns
 .no-gutter > [class*='col-'] {
 	@media screen and (min-width: $screen-md) {
@@ -679,8 +684,14 @@ main{
 	}
 }
 
+.accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
 .pagehead{
-	background-position: center center;
+	background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 100px 0;
@@ -692,6 +703,7 @@ main{
 	p:last-child, h1:last-child{
 		margin-bottom: 0px;
 	}
+	@extend .accelerate;
 }
 
 /*
@@ -735,7 +747,7 @@ main{
 }
 
 
-
+// Wrappers are mainly for spacing
 
 .card-wrapper-press{
 	margin-bottom: 20px;
@@ -960,12 +972,14 @@ main{
 	 //border-top: 8px solid $brand-primary; 
 	 //border-bottom: 8px solid $brand-primary;
 	 h4{
-	 	font-family: $font-family-sans-serif;
-	 	font-size: 16px;
+	 	font-family: $font-family-serif;
+	 	font-size: 26px;
 	 	text-transform: uppercase;
 	 	font-weight: 500;
 	 	color: $brand-primary;
 	 	margin: 20px 0;
+	 	letter-spacing: -0.5px;
+	 	text-transform: capitalize;
 	 }
 	 p{
 	 	font-family: $font-family-sans-serif;
@@ -1659,3 +1673,26 @@ a.back-to-top{
  *
  *
  */
+
+
+.affix-top{}
+
+.affix{
+	top: 150px;
+	@media screen and (min-width: $screen-md) {
+		width: 212.5px;
+	}
+	@media screen and (min-width: $screen-lg) {
+		width: 262.5px;
+	}
+}
+.affix-bottom{
+	position: absolute;
+	@media screen and (min-width: $screen-md) {
+		width: 212.5px;
+	}
+	@media screen and (min-width: $screen-lg) {
+		width: 262.5px;
+	}
+}
+
