@@ -28,6 +28,12 @@ var go = (function ($, root, undefined) {
 	        		bottom: $('footer').height() + 100,
 	      		}
 			});	
+			/*$('#about-nav').affix({
+	      		offset: {
+	        		top: $('#navbar').height() + $('#pagehead').height(),
+	        		bottom: $('footer').height() + 100,
+	      		}
+			});	*/
 		}
 	},
 
@@ -179,9 +185,9 @@ var go = (function ($, root, undefined) {
 		var $backToTop = $('#backToTop');
 
 		if ($(this).scrollTop() > winH ) {
-			$('#backToTop').addClass('show');
+			$('#backToTop').addClass('on');
 		} else {
-			$('#backToTop').removeClass('show');
+			$('#backToTop').removeClass('on');
 		}
 	},
 

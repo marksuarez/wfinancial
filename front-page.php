@@ -53,20 +53,20 @@
 								<div class="card-wrapper-featured">
 									<div class="card">
 										<div class="card-inner">
-											<div class="card-featured-label" style="margin: 10px 0px;">	
+											<div class="card-featured-label">	
 												<h6 class="">Featured Deals</h6>
 												<hr class="fancy"/>
 											</div>
-											<div class="card-featured-label" style="margin: 55px 0px 25px;">	
+											<div class="card-featured-label">	
 												<h2><?php echo $deal_amount; ?><br/>
 												<?php echo $deal_type; ?></h2>
 											</div>	
-											<div class="card-featured-label" style="margin: 25px 0px 55px;">	
-												<h6 style="font-size: 13px;"><?php echo $deal_location; ?></h6>
+											<div class="card-featured-label">	
+												<h6 class="small"><?php echo $deal_location; ?></h6>
 												<p><?php echo $deal_short_description; ?></p>
 											</div>
-											<div class="card-featured-label" style="margin: 10px 0px;">
-												<h6 style="font-size: 13px;"><a href="<?php the_permalink(); ?>">View This Deal</a></h6>
+											<div class="card-featured-label">
+												<h6 class="small"><a href="<?php the_permalink(); ?>">View This Deal</a></h6>
 											</div>
 										</div>
 									</div>	

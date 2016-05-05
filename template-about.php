@@ -5,7 +5,7 @@
 		<?php get_template_part('pagehead', 'default'); ?>
 
 
-		<section>
+		<section id="about-nav">
 			<div class="">
 				<div class="container">
 					<div class="row">
@@ -181,10 +181,14 @@
 					<div class="card-wrapper-references">
 						<div class="card">
 							<div class="card-inner">
-								<h6>Reference</h6>
-								<hr class="fancy"/>
-								<div>
+								<div class="card-featured-label">
+									<h6>Reference</h6>
+									<hr class="fancy"/>
+								</div>
+								<div class="card-featured-label">
 									<?php echo $quote ?>
+								</div>	
+								<div class="card-featured-label">
 									<h6 class="small-h6"><?php echo $person ?></h6>
 								</div>
 							</div>
