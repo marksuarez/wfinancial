@@ -28,7 +28,7 @@ $brand-danger:          #d9534f !default;	//Default
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               #fcfcfc !default;
 //** Global text color on `<body>`.
 $text-color:            $gray-base !default;
 
@@ -364,7 +364,7 @@ $container-lg:                 $container-large-desktop !default;
 //##
 
 // Basics of a navbar
-$navbar-height:                    90px !default;
+$navbar-height:                    80px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;

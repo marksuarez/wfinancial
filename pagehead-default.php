@@ -8,10 +8,13 @@
 				</div>
 			</div>
 
-			<div class="pagehead" <?php if( get_field('page_header_background') ): ?> style="background-image: url(<?php the_field('page_header_background'); ?>);" <?php endif?> 
+			<!--<div class="pagehead" <?php// if( get_field('page_header_background') ): ?> style="background-image: url(<?php// the_field('page_header_background'); ?>);" <?php// endif?> 
 				data-100-top="background-position: center bottom 0px;"
 				data--600-top="background-position: center bottom -200px;"
-				>
+				>-->
+			<div class="pagehead" <?php if( get_field('page_header_background') ): ?> style="background-image: url(<?php the_field('page_header_background'); ?>);" <?php endif?> 
+				
+				>	
 				<div class="container">
 					<div class="row">
 						<div class="col-md-push-2 col-md-8">

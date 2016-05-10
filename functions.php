@@ -116,6 +116,11 @@ function html5blank_header_scripts()
         wp_register_script('skrollr', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js', array(), '0.6.30', true); // Skrollr
         wp_enqueue_script('skrollr'); // Enqueue it!
 
+/*        
+        wp_register_script('vide', 'http://vodkabears.github.io/vide/js/jquery.vide.min.js', array('jquery'), '1.0.0', true); // Vide
+        wp_enqueue_script('vide'); // Enqueue it!
+*/        
+
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }

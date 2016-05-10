@@ -11,7 +11,7 @@
 
 					<div class="row">
 						<div class="col-md-3">
-							<div class="text-center margin-bottom-50">
+							<div class="text-center margin-bottom-50 custom-nav-stacked">
 								<div class="btn-group btn-group-justified glossary">
 								
 									<?php $letters = range('a','e'); ?>
@@ -75,8 +75,8 @@
 							<?php $letters = range('a','z'); ?>
 							<?php foreach ($letters as $i) { ?>
 							<?php $iup = strtoupper($i); ?>
-							
-							<h2 id="<?php echo $i ?>" class="offset"><?php echo $iup ?></h2>
+								
+							<h2 id="<?php echo $i ?>" class="offset offset-glossary"><?php echo $iup ?></h2>
 							<hr/>
 							
 							

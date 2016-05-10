@@ -17,7 +17,6 @@
 	<body <?php body_class(); ?>>
 		<div id="skrollr-body">
 		<div id="wptime-plugin-preloader"></div>
-		
 		<div id="top"></div>
 
 
@@ -26,31 +25,31 @@
 	<?php if(is_front_page() ) { ?>
 
 
-			<!-- nav -->
-	      	<nav class="hero-nav" role="navigation">
-	          	<?php
-			            wp_nav_menu( array(
-			                'menu'              => 'fullscreen',
-			                'theme_location'    => 'primary',
-			                'depth'             => 2,
-			                'container'         => 'div',
-			                'container_class'   => '',
-			        		'container_id'      => '',
-			                'menu_class'        => '',
-			                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-			                'walker'            => new wp_bootstrap_navwalker())
-			            );
-			        ?>
-	     	</nav>
-	      	<!-- /nav -->
+		<!-- nav -->
+      	<nav class="hero-nav" role="navigation">
+          	<?php
+		            wp_nav_menu( array(
+		                'menu'              => 'fullscreen',
+		                'theme_location'    => 'primary',
+		                'depth'             => 2,
+		                'container'         => 'div',
+		                'container_class'   => '',
+		        		'container_id'      => '',
+		                'menu_class'        => '',
+		                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+		                'walker'            => new wp_bootstrap_navwalker())
+		            );
+		        ?>
+     	</nav>
+      	<!-- /nav -->
 
-	      	<!-- Responsive Navigation Hamburger Toggle -->
-	      	<div class="hero-toggle" title="Menu">
-	          	<div class="bar1"></div>
-	          	<div class="bar2"></div>
-	          	<div class="bar3"></div>
-	      	</div>  
-	      	<!-- / -->
+      	<!-- Responsive Navigation Hamburger Toggle -->
+      	<div class="hero-toggle" title="Menu">
+          	<div class="bar1"></div>
+          	<div class="bar2"></div>
+          	<div class="bar3"></div>
+      	</div>  
+      	<!-- / -->
 
 		<section id="hero" data-top="opacity:1;" data-1000="opacity:0;">
 
@@ -60,19 +59,43 @@
 
 				<!-- Fullscreen video -->
 				<div class="video-wrapper">
-
+					<!-- Vide markup
+					<div id="test" class="test-div" style="
+					width: 100%; 
+					height: 100vh;
+					display: block;
+					position: fixed;
+					z-index: -2;
+					"
+					data-vide-bg="
+					webm: <?php //echo site_url(); ?>/wp-content/uploads/Option3.webm,
+					mp4: <?php //echo site_url(); ?>/wp-content/uploads/Option3.mp4,
+					ogv: <?php //echo site_url(); ?>/wp-content/uploads/Option3.ogv,
+					poster: <?php //echo site_url(); ?>/wp-content/uploads/option-3-poster.png
+					" 
+					data-vide-options="
+					loop: true, 
+					muted: true, 
+					position: 50% 50%,
+					autoplay: true,
+					resizing: true,
+					bgColor: 'transparent',
+					className: ''
+					"></div>-->
+					<!--
 					<video id="video1" class="video-bg" preload="auto" muted autoplay poster="http://marksupernet.com/Recutvid/poster.png">
 		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.webm"/>
 		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.mp4"/>
 		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.ogv/">
 	            	</video>
-
-	            	<video id="video2" class="video-bg" preload="auto" muted autoplay loop poster="http://marksupernet.com/Recutvid/poster.png">
-		            	<source src="http://marksuarez.github.io/video/Option_1/Option1_LowRes.webm"/>
-		            	<source src="http://marksuarez.github.io/video/Option_1/Option1_LowRes.mp4"/>
-		            	<source src="http://marksuarez.github.io/video/Option_1/Option1_LowRes.ogv"/>
+					-->
+	            	
+	            	<video id="video2" class="video-bg" preload="auto" muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/video/final/Option3.png">
+		            	<source src="<?php echo get_template_directory_uri(); ?>/video/final/Option3.webm"/>
+		            	<source src="<?php echo get_template_directory_uri(); ?>/video/final/Option3.mp4"/>
+		            	<source src="<?php echo get_template_directory_uri(); ?>/video/final/Option3.ogv"/>
 	            	</video>	
-
+					
             	</div>
 				<!-- / Fullscreen video -->
 

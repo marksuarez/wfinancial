@@ -9,9 +9,15 @@
 			<div class="whatsOurDeal">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-push-2 col-md-8">
-							<h1 class="text-center">What's our deal?</h1>
-							<p class="text-center lead"><?php the_field('intro') ?></p>
+						<div class="col-md-12">
+							<?php if( get_field('page_title') ): ?>
+							<h1 class="text-center"><?php the_field('page_title'); ?></h1>
+							<?php endif; ?>
+							<!--<hr/ style="opacity: 0.1">-->
+							<?php if( get_field('page_intro') ): ?>
+							<p class="text-center lead"><?php the_field('page_intro') ?></p>
+							<?php endif; ?>
+							<!--<hr/ style="opacity: 0.1">-->
 							<div class="text-center"><a href="<?php echo site_url(); ?>/donedeals" class="btn btn-primary">See Done Deals</a></div>	
 						</div>
 					</div>
@@ -29,7 +35,7 @@
 			<div class="main-gallery">
 
 
-			<?php $args = array ( 'post_type'    => 'donedeals', ); ?>
+			<?php $args = array ( 'post_type'    => 'donedeals', 'posts_per_page' => '-1'); ?>
 			<?php $query = new WP_Query( $args ); ?>
 			<?php if ( $query->have_posts()): while ( $query->have_posts()) :  $query->the_post(); ?> 
 			<?php
@@ -51,7 +57,7 @@
 						<div class="row">
 							<div class="col-md-push-7 col-md-4">
 								<div class="card-wrapper-featured">
-									<div class="card">
+									<div class="card card-featured">
 										<div class="card-inner">
 											<div class="card-featured-label">	
 												<h6 class="">Featured Deals</h6>
@@ -117,7 +123,7 @@
 								<p>
 									Keep up to date with<br/>W Financial eNews
 								</p>
-								<a href="#" class="btn btn-primary">Sign Up to our Mailing List</a>
+								<a href="<?php echo site_url(); ?>/join-our-mailing-list" class="btn btn-primary">Sign Up to our Mailing List</a>
 							</div>	
 						</div>
 					</div>

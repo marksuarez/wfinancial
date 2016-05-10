@@ -2,7 +2,7 @@
 
 	<main role="main">
 		<section>
-			<div class="">
+			<div class="light-bg">
 				<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 
@@ -80,7 +80,11 @@
 									</div>
 								</div>
 							</div>		
+							<div class="text-center back-to-donedeals-block">
 								
+								<a href="<?php echo site_url() . '/donedeals'; ?>" class="btn btn-primary btn-block">Back To Done Deals</a>
+								
+							</div>
 								
 								
 
@@ -94,11 +98,7 @@
 					</div>
 				</div>
 
-				<div class="text-center" style="padding: 30px;">
-								
-								<a href="<?php echo site_url() . '/donedeals'; ?>" class="btn btn-primary">Back To Done Deals</a>
-								
-							</div>
+				
 				
 				
 

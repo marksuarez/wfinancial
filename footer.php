@@ -1,7 +1,24 @@
 		<!-- footer -->
 		<footer class="footer" role="contentinfo">
 			
+
+			<?php if( !is_front_page() ) : //Show only if not on the homepage?>
+			
 			<section>
+				<div class="mailing-section">
+					<div class="container container-small">
+						<div class="row">
+							<div class="col-md-7"><h6>Keep up to date with W Financial eNews:</h6></div>
+							<div class="col-md-5"><a href="<?php echo site_url(); ?>/join-our-mailing-list" class="btn btn-primary btn-block">Sign Up to our Mailing List</a></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<?php endif; ?>
+
+			<section>
+
 				<div class="footerGreen">
 
 					<div class="container container-small">

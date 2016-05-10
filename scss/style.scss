@@ -11,7 +11,7 @@
 	License URI: http://opensource.org/licenses/mit-license.php
 */
 /* */
-
+ 
 // Core variables and mixins
 @import "bootstrap/fontface";
 @import "bootstrap/variables";
@@ -65,13 +65,12 @@
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 a{}
+
 // Navbar Height Variables
 $navbar-height-ms: 66px;
-$navbar-height-ms-big: 94px;
+$navbar-height-ms-big: $navbar-height;
 $hero-height-ms: 100vh;
 $hero-height-ms-big: 100vh;
-
-$white: #fff;
 
 
 // Admin Bar Push Down Fix
@@ -142,7 +141,7 @@ div > a:last-child
 
 .btn-outline-white{
 	border-color: rgba(255,255,255,0.3);
-	color: #fff;
+	color: $body-bg;
 	background-color: transparent;
 	&:hover{
 		border-color: rgba(255,255,255,0.3);
@@ -212,6 +211,13 @@ p.quote{
   }
 }
 
+.offset-glossary:before{
+	height: $navbar-height-ms + 80;
+	@media screen and (min-width: $screen-md) {
+		height: $navbar-height-ms-big + 80;
+	}
+}
+
 // Press Filters
 .pressFilters {
 	margin: 0px 0px 30px;
@@ -243,25 +249,30 @@ p.quote{
 
 // Hero Toggle
 .hero-toggle {
-	z-index: 9990;
+	display: none;
+	z-index: 1038;
 	position: fixed;
 	top: 0;
 	right: 0;
 	cursor: pointer;
-  	padding: 33px;
-  	width: 96px;
+  	padding: 24px 34px;
+  	@media screen and (min-width: $screen-md) {
+		display: block;
+		padding: 34px 34px;
+	}
+  	width: 98px;
   	height: 30px;
   	.bar1, .bar2, .bar3 {
 	    width: 100%;
 	    height: 2px;
 	    margin-bottom: 6px;
-	    background-color: $white;
+	    background-color: $body-bg;
 	    transition: all 0.5s cubic-bezier(.87,-.41,.19,1.44);
 	    visibility: visible;
   	}
   	&.hero-nav-on{
   		z-index: 9999;
-  		.bar1, .bar2, .bar3 {background-color: #fff;transform-origin: 12.5% 40%;}
+  		.bar1, .bar2, .bar3 {background-color: $body-bg;transform-origin: 12.5% 40%;}
 	    .bar1{transform: rotate(45deg);}
 	    .bar3{transform: rotate(-45deg);}
 	    .bar2{visibility: hidden;}
@@ -320,6 +331,16 @@ p.quote{
 	overflow: hidden;
 	position: relative;
 	.video-wrapper{
+		background-image: url('video/final/Option3.png');
+		background-position: center center;
+		background-size: cover;
+		background-attachment: inherit;
+		position: relative;
+		z-index: -3;
+		height: $hero-height-ms;
+		@media screen and (min-width: $screen-md) {
+			//background-image: none;
+		}
 		&:before{
 			content: "";
 			position: fixed; 
@@ -368,13 +389,17 @@ p.quote{
 	.hero-elements-wrapper{
 		top:0;
 		position: fixed;
-		z-index: 1;
+		z-index: 0;
 		width: 100%;
     	height: $hero-height-ms;
   		@media screen and (min-width: $screen-md) {
 			height: $hero-height-ms-big;
 		} 
     	.hero-logo {
+    		display: none;
+    		@media screen and (min-width: $screen-md) {
+				display: block;
+			}
     		position: relative;
 			float: left;
 			a{
@@ -478,13 +503,13 @@ p.quote{
  *
  */
 
-header{ z-index: 9996; position: relative; }
+header{ z-index: 1040; position: relative; }
 
 .navbar{
-	min-height: 0px;
+	min-height: $navbar-height-ms;
 	padding: 0px 0px 0px 20px;
 	@media screen and (min-width: $screen-md) {
-   		min-height: 90px;
+   		min-height: $navbar-height-ms-big;
    		padding: 0 0;
    	}
    	@media screen and (min-width: $screen-md) {
@@ -514,7 +539,7 @@ header{ z-index: 9996; position: relative; }
 			}
 		}
 		@media screen and (min-width: $screen-md) {
-			padding: 22px 15px 21px;
+			padding: 15px 15px 15px;
 			.logo-img{
 				max-height: none;
 			}
@@ -525,7 +550,7 @@ header{ z-index: 9996; position: relative; }
 		padding: 24px 34px;
 		border: none;
 		border-radius: 0;
-		background-color: #FAFAFA;
+		background-color: $smoke;
 		.icon-bar{
 			background-color: $gray-base;
 			width: 30px;
@@ -555,7 +580,7 @@ header{ z-index: 9996; position: relative; }
 					  transform: scaleX(0.0001);  
 					  transition: transform 50ms ease-in-out;
 					  position: relative;
-					  bottom:-33px;
+					  bottom:-27px;
 				}
 				&:hover:after{
 					transform: scaleX(1);
@@ -610,14 +635,17 @@ header{ z-index: 9996; position: relative; }
 
 main{
 	z-index: 9995;
-	position: relative;
-	background-color: #fff;
+	position: static;
+	background-color: $body-bg;
 	
 	padding-top: $navbar-height-ms;
 	.home & { 
 		padding-top: 0px; 
 	}
 	.home.has-docked-nav & { 
+		.hero{
+			display: none;
+		}
 		padding-top: $navbar-height-ms; 
 		@media screen and (min-width: $screen-md) {
    			padding-top: $navbar-height-ms-big;
@@ -651,7 +679,12 @@ main{
  */
 
 .breadcrumb-wrapper{
+	display: none;
+	@media screen and (min-width: $screen-md) {
+		display: block;
+	}
 	position: relative;
+	z-index: 1;
 	&.breadcrumb-in-pagehead{
 		position: absolute;
 	}  
@@ -690,7 +723,10 @@ main{
 	background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	padding: 100px 0;
+	padding: 60px 0;
+	@media screen and (min-width: $screen-md) {
+		padding: 100px 0;
+	}
 	h1{
 		font-size: 36px;
 		letter-spacing: -1px;
@@ -724,6 +760,11 @@ main{
 	background-color: $gray-base;
 }
 
+.references-gallery{
+	position: relative; 
+	background-color: transparent;
+}
+
 .gallery-cell{
 	width: 100%;
 	position: absolute;
@@ -743,15 +784,14 @@ main{
 }
 
 
-// Wrappers are mainly for spacing
+// Card Wrappers are mainly for spacing
 
-.card-wrapper-press{
-	margin-bottom: 20px;
-}
 
-.card-wrapper-featured{
-	margin: 80px 0px;
-}
+.card-wrapper-press{ margin-bottom: 20px; }
+
+.card-wrapper-featured{ margin: 80px 0px; }
+
+.card-wrapper-donedeals{ margin-bottom: 30px; }
 
 .card-wrapper-partners{
 	width: 240px;
@@ -763,8 +803,6 @@ main{
 	}
 }
 
-
-
 .card-wrapper-references{
 	width: 90%; 
 	margin: 0px 15px;
@@ -773,49 +811,29 @@ main{
 	}
 }
 
-.card-wrapper-donedeals{
-	margin-bottom: 30px;
+/*  */
+
+.card-a-wrap:hover, .card-a-wrap:focus, .card-a-wrap:active{
+	text-decoration: none;
 }
 
-.card-press{
-	h4{
-		font-family: $font-family-serif;
-		font-weight: 500;
-	}
-}
+/*  */
 
-.card-featured-label{
-	margin: 35px 0;
-	&:first-child{
-		margin-top: 0px;
-	}
-	&:last-child{
-		margin-bottom: 0px;
-	}
-}
 
 .card{
-	transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
-	&[myAttr='0']{
-		opacity: 0;
-		transform: translateY(30%);
-	}
-	&[myAttr='1']{
-		opacity: 1;
-		transform: translateY(0%);
-	}
 	position: relative;
-	//border-top: 8px solid $brand-primary;
-	background-color: #fff;
-	/*padding: 50px;*/
-	/*margin: 100px 0px;*/
+	background-color: $body-bg;
+	transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+	&[myAttr='0']{ opacity: 0; transform: translateY(30%); }
+	&[myAttr='1']{ opacity: 1; transform: translateY(0%); }
 	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-	//transition: 100ms ease-in-out;
-	&:hover{
-		box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);
-	}
+	&:hover{box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);}
 	.card-inner{
 		padding: 45px;
+	}
+	h6.small-h6{
+		font-size: 13px; 
+		line-height: 19px;
 	}
 	h6{
 		font-size: 14px;
@@ -837,6 +855,12 @@ main{
 		border: none;
 		width: 40px;
 		margin: 0;
+	}
+	&.card-press{
+		h4{
+			font-family: $font-family-serif;
+			font-weight: 500;
+		}
 	}
 	&.partner-card{
 		h4{
@@ -865,36 +889,12 @@ main{
 			}
 		}
 	}
-}
-
-.card-a-wrap:hover, .card-a-wrap:focus, .card-a-wrap:active{
-	text-decoration: none;
-}
-
-
-.deal-card{
-
-	// background-image: url(http://www.wfinancial.dev/wp-content/uploads/10_EAST_34TH.png);
-	background-position: center center;
-	background-size: cover;
-	&::before{
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+	&.affiliates-logo-card{
+		padding: 110px 170px; 
 	}
-	.card-inner{
-		padding: 30px;
-	}
-	h2, h6, p, .deal-tag{
-		color: $smoke;
-	}
-	min-height: 300px;
-	&.deal-card-tall{
-		min-height: 630px;
+	&.deal-card{
+		background-position: center center;
+		background-size: cover;
 		&::before{
 			content: '';
 			position: absolute;
@@ -902,16 +902,39 @@ main{
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+		}
+		.card-inner{
+			padding: 30px;
+		}
+		h2, h6, p, .deal-tag{
+			color: $smoke;
+		}
+		min-height: 300px;
+		&.deal-card-tall{
+			min-height: 630px;
+			&::before{
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
+			}
 		}
 	}
 }
 
-
+.card-featured-label{
+	margin: 35px 0;
+	&:first-child { margin-top: 0px; }
+	&:last-child{ margin-bottom: 0px; }
+}
 
 .deal-tag{
 	position: relative;
-	z-index: 9990;
+	z-index: 1;
 	background-color: $brand-success;
 	display: inline-block;
 	padding: 5px 15px 5px 15px;
@@ -967,8 +990,19 @@ main{
  *
  */
 
+
 .whatsOurDeal{
-	padding: 100px 0;
+	u{
+		text-decoration: none;
+		border-bottom: 3px solid rgba(255,255,255,0.1);
+		/*display: inline-block;
+		margin-bottom: 3px;*/
+	}
+}
+
+.whatsOurDeal{
+	position: relative;
+	padding: 80px 0;
 	background-color: $gray-base;
 	color: $smoke;
 	h1{
@@ -980,8 +1014,34 @@ main{
 		margin: 10px 0px 20px;
 	}
 	@media screen and (min-width: $screen-md) {
+		padding: 140px 0;
+		p.lead{
+			font-size: 29px; 
+			line-height: 1.25em;
+			letter-spacing: -.35px;
+			margin: 25px 0 30px;
+			color: #bbbbbb;
+			// also had to change the column markup to col-md-12
+
+		}
 		h1{
-			font-size: 42px;
+			font-size: 38px;
+			letter-spacing: -0.6px;
+			color: #ededed;
+			/*
+			font-size: 20px;
+			text-transform: uppercase;
+			font-weight: 500;
+			letter-spacing: 1.5px;
+			*/
+		}
+		.container{
+			width: 100%;
+		}
+	}
+	@media screen and (min-width: $screen-lg) {	
+		.container{
+			width: 1080px;
 		}
 	}
 }
@@ -1010,6 +1070,10 @@ main{
 	 	}
 	 }
 	 .container{
+	 	/* fullwidth */
+	 	width: 100%;
+	 	max-width: 100%;
+	 	/* fullwidth */
 	 	position: relative; 
 	 	-webkit-transform-style: preserve-3d; 
 	 	-moz-transform-style: preserve-3d; 
@@ -1027,10 +1091,10 @@ main{
 	 		transform: translate(-50%,-50%);
 	 	}
 	 	.row{
-	 		background-color: #fff;
+	 		background-color: $body-bg;
 	 		overflow: hidden;
 	 		.col-md-6{
-	 			background-color: #fff;  
+	 			background-color: $body-bg;  
 	 			padding: 150px 0px; 
 	 			border-left: 1px solid $smoke;
 	 		}
@@ -1071,18 +1135,28 @@ main{
 		padding: 10px 0px;
 		&:hover, &:active, &:focus{
 			text-decoration: none;
+			background-color: $body-bg;
 		}
 		@media screen and (min-width: $screen-md) {
 			display: inline-block;
-			padding: 34px 20px;
+			padding: 27px 20px;
+			&:after{
+				display:block;
+				  content: '';
+				  border-bottom: solid 3px $brand-success;  
+				  transform: scaleX(0.0001);  
+				  transition: transform 50ms ease-in-out;
+				  position: relative;
+				  bottom:-27px;
+			}
+			&:hover:after{
+				transform: scaleX(1);
+			}
 		}
 	}
 }
 
-.references-gallery{
-	position: relative; 
-	background-color: transparent;
-}
+
 
 .overview-text-column{
 	padding: 40px 15px;
@@ -1100,23 +1174,16 @@ main{
 	}
 }
 
-.card .small-h6{
-	font-size: 13px; 
-	line-height: 19px;
-}
 
-.card.affiliates-logo-card{
-	padding: 110px 170px; 
-	border-top: none;
-}
 
 .modal{
+	z-index: 9999;
 	.modal-dialog{
-		width: auto;
+		width: 100%;
 		.modal-content{
 			border-radius: 0;
 			border: none;
-			background-image: url('http://www.wfinancial.dev/wp-content/uploads/10_EAST_34TH.png');
+			//background-image: url('http://www.wfinancial.dev/wp-content/uploads/10_EAST_34TH.png');
 			background-position: center center;
 			background-size: cover;
 			.modal-header, .modal-footer{
@@ -1137,7 +1204,7 @@ main{
 /*
  * 
  *
- * DONE DEALS ---------------------------
+ * DONE DEALS SINGLE ---------------------------
  *
  *
  */
@@ -1184,7 +1251,8 @@ main{
 
 .arrow{
 	display: inline-block;
-	width: 100px;
+	width: 49%;
+	margin: 30px 0;
 	a{
 		color: $gray-base;
 		font-size: 36px;
@@ -1192,6 +1260,7 @@ main{
 		display: inline-block;
 	}
 	@media screen and (min-width: $screen-md) {
+		width: 100px;
 		position: absolute;
 		width: auto;
 		top:0; 
@@ -1239,6 +1308,10 @@ main{
 			}
 		}	
 	}	
+}
+
+.back-to-donedeals-block{
+	padding: 30px 0;
 }
 
 /*
@@ -1294,27 +1367,51 @@ main{
 		width: 12px;
 		height: 12px;
 		background-color: transparent;
-		opacity: .5;
-		border: 2px solid #fff;
+		opacity: .75;
+		border: 2px solid $body-bg;
 		margin: 0 6px;
 		&.is-selected{
-			background-color: #fff;
-			opacity: .5;
+			background-color: $body-bg;
+			opacity: .75;
 		}
 	}
 }	
 .flickity-prev-next-button{
-	border: 2px solid #fff !important;
+	border: 2px solid $body-bg !important;
 	background: transparent !important;
-	opacity: .5;
+	opacity: .75;
 	.arrow{
-		fill: #fff;
+		fill: $body-bg;
 	}
 	&.previous{
 		left: 30px;
 	}
 	&.next{
 		right: 30px;
+	}
+}
+
+.main-gallery{
+	.flickity-page-dots{
+	}
+	.flickity-prev-next-button{
+	}
+}
+
+.references-gallery{
+	.flickity-page-dots{
+		.dot{
+			border: 2px solid $gray-base !important;
+			&.is-selected{
+				background-color: $gray-base;
+			}
+		}
+	}
+	.flickity-prev-next-button{
+		border: 2px solid $gray-base !important;
+		.arrow{
+			fill: $gray-base;
+		}
 	}
 }
 
@@ -1380,6 +1477,7 @@ main{
 	border-bottom: 1px solid $smoke;
 	border-radius: 4px;
 	.panel{
+		background-color: transparent;
 		border: none;
 		box-shadow: none;
 		-webkit-box-shadow: none;
@@ -1504,7 +1602,7 @@ select.form-control{
 	    margin-bottom: 15px;
 	    &:hover, &:focus, &:active{
 	    	background-color: #005a55;
-	    	color: #fff;
+	    	color: $body-bg;
 	    }
 	}
 	.gfield_label{
@@ -1543,7 +1641,7 @@ select.form-control{
 			background-color: #eaebeb;
 			padding: 20px 10px;
 			position: relative;
-			border: 1px solid #fff;
+			border: 1px solid $body-bg;
 			.gf_step_number{
 				font-size: 20px;
 				margin-right: 5px;
@@ -1564,7 +1662,7 @@ select.form-control{
 				border: solid;
 				width: 1em;
 				height: 1em;
-				border-color: #fff;
+				border-color: $body-bg;
 				background-color: $smoke;
 				border-width: 0 1px 1px 0;
 				-webkit-transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
@@ -1634,13 +1732,35 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 	max-width: 800px;
 }
 
+
+
 footer{
 	position: relative;
-	z-index: 9995;
+	z-index: 1;
 	line-height: 1.1em;
-	color: #fff;
+	color: $body-bg;
 	a{
-		color: #fff;
+		color: $body-bg;
+	}
+	.mailing-section{ // Mailing List Button
+		color: $gray-light;
+		background-color: $smoke;
+		padding: 40px 0px; 
+		background-color: #eaebeb;
+		h6{
+			display: block;
+			padding: 15px 0 15px;
+			font-family: $font-family-serif;
+			font-size: 16px;
+			text-align: center;
+		}
+		@media screen and (min-width: $screen-md) {
+			h6{
+				font-size: 20px;
+				text-align: left;
+				padding: 15px 0 0;
+			}
+		}
 	}
 	.footerGreen{
 		padding: 100px 0;
@@ -1680,6 +1800,11 @@ footer{
 				text-transform: uppercase;
 				letter-spacing: 0.06em;
 				opacity: 0.5;
+				&:hover, &:focus, &:active{
+					color: $body-bg;
+					opacity: 1;
+					text-decoration: none;
+				}
 			}
 		}
 		.btn {
@@ -1713,7 +1838,6 @@ a.back-to-top{
 	&.on{ }
 	@media screen and (min-width: $screen-md) {
 		font-size: 24px;
-		transition: opacity 2s cubic-bezier(.87,-.41,.19,1.44);
 		opacity: 0;
 		display: none;
 		&.on{

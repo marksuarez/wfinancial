@@ -8,6 +8,8 @@ var go = (function ($, root, undefined) {
 	var a,b,c,
 
 
+	
+
 	/* 
 	* Initialize Skrollr.js only if on desktop 
 	*/
@@ -27,13 +29,7 @@ var go = (function ($, root, undefined) {
 	        		top: $('#navbar').height() + $('#pagehead').height() - 50,
 	        		bottom: $('footer').height() + 100,
 	      		}
-			});	
-			/*$('#about-nav').affix({
-	      		offset: {
-	        		top: $('#navbar').height() + $('#pagehead').height(),
-	        		bottom: $('footer').height() + 100,
-	      		}
-			});	*/
+			});
 		}
 	},
 
@@ -97,12 +93,17 @@ var go = (function ($, root, undefined) {
 	* Initialize Video — plays long video then loops
 	*/
 	initVideo = function () {
+		/* Video switching script
 		$( "#video2" ).hide();
 		$('video').on('ended',function(){
       		$( "#video1" ).hide();
 	    	$( "#video2" ).show();
 	    	document.getElementById('video2').play();
     	});
+		*/
+		video = document.getElementById("#video2");
+		video.load();
+		video.play();
    	},
 
 	
@@ -111,9 +112,8 @@ var go = (function ($, root, undefined) {
 	*/
 	initResponsiveVideo = function () {
 		if (window.matchMedia('(max-width: 768px)').matches) {
-		    $('#video1').remove();
+		    //$('#video1').remove();
 		    $('#video2').remove();
-		} else {
 		}
 	},
 
@@ -121,8 +121,8 @@ var go = (function ($, root, undefined) {
 	* Pin the Header on scroll
 	*/
 	pinHeader = function () {
-
-       var $header = $('header'),
+		
+       	var $header = $('header'),
           $body = $('body'),
           $window = $(window),
           headerOffsetTop = $header.offset().top;
@@ -132,7 +132,7 @@ var go = (function ($, root, undefined) {
           $window.on('resize', resize)
         }
  
-       function onScroll() {
+       	function onScroll() {
           console.log(headerOffsetTop);
           if(headerOffsetTop < $window.scrollTop() && !$body.hasClass('has-docked-nav')) {
             $body.addClass('has-docked-nav')
@@ -142,13 +142,14 @@ var go = (function ($, root, undefined) {
           }
         }
         
-       function resize() {
+       	function resize() {
           $body.removeClass('has-docked-nav')
           headerOffsetTop = $header.offset().top
           onScroll()
         }
         
-        init();    
+        init();
+          
     },
 
 
@@ -198,8 +199,8 @@ var go = (function ($, root, undefined) {
 	{        
 		if($('.textItem').length > 1)
 		{
-			$('.textItem:first').addClass('current').fadeIn(1000);
-			setInterval(function(){textRotate();}, 3000);
+			$('.textItem:first').addClass('current').fadeIn(2500);
+			setInterval(function(){textRotate();}, 5000);
 		}
 	},
 
@@ -361,6 +362,17 @@ var go = (function ($, root, undefined) {
 	},
 
 	/* 
+	* canPlayThrough 
+	
+	canPlayThrough = function () {
+		$('#video2').on('canplay', function(){
+			$('#video2').get(0).play();
+			$('#loader').delay(1000).fadeOut();
+		});
+	},
+	*/
+	
+	/* 
 	* For Tabs, linking into the tab/hash
 	*/
 	linkToTabHash = function()
@@ -388,18 +400,21 @@ var go = (function ($, root, undefined) {
 	ready = function() {
 		pinHeader();
 		scrollToTopArrow();
-		setupRotator();
+		//setupRotator();
 		heroMenuToggle();
 		showSearch();
 		initSkrollr();
-		initVideo();
+		//initVideo();
 		initResponsiveVideo();
 		initSmoothScroll();
 		initFlickity();
 		fixHeight();
 		initIsotope();
 		affixSideNav();
+		//initVide();
+		//canPlayThrough();
 
+		$( window ).load(function(){ setupRotator(); });
 		$( window ).on( 'resize.go', initResponsiveVideo );
 		$( window ).on( 'scroll.go', scrollToTopArrow );
 	};

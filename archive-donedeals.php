@@ -1,19 +1,7 @@
 <?php get_header(); ?>
 
 	<main role="main">
-		<!-- Default Archive Page
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1><?php // _e('Archives', 'html5blank' ); ?></h1>
-						<?php // get_template_part('loop'); ?>
-						<?php // get_template_part('pagination'); ?>
-					</div>
-				</div>
-			</div>	
-		</section>
-		-->
+		
 
 		<section id="pagehead">
 
@@ -23,10 +11,7 @@
 				</div>
 			</div>
 
-			<div class="pagehead" style="background-image: url(<?php echo site_url() ?>/wp-content/uploads/header_SKYLINE.png);"
-				data-100-top="background-position: center bottom 0px;"
-				data--600-top="background-position: center bottom -200px;"
-				>
+			<div class="pagehead" style="background-image: url(<?php echo site_url() ?>/wp-content/uploads/header_SKYLINE.png);">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-push-2 col-md-8">
@@ -62,7 +47,7 @@
 							// we add this, to show all posts in our
 							// Glossary sorted alphabetically
 							$posts = query_posts($query_string .
-							'&orderby=menu_order&order=asc&posts_per_page=8'); 
+							'&orderby=menu_order&order=asc&posts_per_page=-1'); 
 						?>
 
 						<?php if (have_posts()): while (have_posts()) : the_post(); 

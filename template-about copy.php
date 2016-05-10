@@ -99,61 +99,70 @@
 									</div>
 								</div>
 							</a>
-							
 							<div id="<?php echo $counter; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="modal-dialog card">
-												<div class="modal-content">
-													<!--<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button></div>-->
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										</div>
+										<div class="container">
 
-																	<div class="row row-eq-height">
-																		<div class="col-md-6 col-md-push-6 flex">
-																		<div class="donedeal-inner-image" <?php if( get_sub_field('grid_portrait') ): ?> style="background-image: url(<?php the_sub_field('grid_portrait'); ?>);" <?php endif?>></div>
-																		<div>
-																		</div>
-																	</div>
-																	<div class="col-md-6 col-md-pull-6">
-																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-																		<div class="donedeal-inner-text">
-																			<div class="card-featured-label">
-																				<h2><?php echo $name; ?></h2>
-																				<h6><?php echo $role; ?><br/></h6>
-																				<hr class="fancy"/>
-																			</div>
-																			<div class="card-featured-label">
-																				<?php echo $bio; ?>
-																				<a href="mailto:<?php echo $email; ?>">Contact <?php echo $name; ?></a>
-																			</div>
-																			<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
-																		</div>	
-																	</div>
-																</div>	
-															</div>	
-														</div>	
+											<div class="row">
+												<div class="col-md-12">
+													<div class="card">
+														<div class="row row-eq-height">
 
-														<!--
-														<div class="row">
-															<div class="col-md-6">
-																<div class="card-wrapper-partners">
-																	<div class="card">
-																		<div class="card-inner">
-																			<div class="modal-body">
-																				<h4 id="myModalLabel"><?php echo $name; ?></h4>
-																				<h6 id="myModalLabel"><?php echo $role; ?></h6>
-																				<p><?php echo $bio; ?></p>
-																				<a href="mailto:<?php echo $email; ?>">Contact</a>
-																			</div>
-																		</div>
-																	</div>	
-																</div>	
+															<div class="col-md-6 col-md-push-6 flex">
+															<div class="donedeal-inner-image" <?php if( get_sub_field('grid_portrait') ): ?> style="background-image: url(<?php the_sub_field('grid_portrait'); ?>);" <?php endif?>></div>
+															<div>
+															<!--<img class="img-responsive" src="<?php //the_field('full_image'); ?>"/>-->
+															</div>
+														</div>
+
+														<div class="col-md-6 col-md-pull-6">
+															<div class="donedeal-inner-text">
+															<!--<img src="<?php //the_field('full_image'); ?>" width="100%" />-->
+																	
+																<div class="card-featured-label">
+																	<h2><?php echo $name; ?></h2>
+																	<h6><h6><?php echo $role; ?></h6><br/>
+																		<!--<?php //if($repeat_borrower) { ?>Repeat Borrower<?php// } else{}; ?>--></h6>
+																	<hr class="fancy"/>
+																</div>
+																<div class="card-featured-label">
+																	<!--<p><?php echo $dealShortDescription; ?></p>-->
+																	<?php echo $bio; ?>
+																	<a href="mailto:<?php echo $email; ?>">Contact</a>
+																</div>
 															</div>	
 														</div>
-														-->
+														</div>	
+													</div>
+												</div>	
+											</div>	
 
-													<!--<div class="modal-footer"><button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button></div>-->
+											<!--
+											<div class="row">
+												<div class="col-md-6">
+													<div class="card-wrapper-partners">
+														<div class="card">
+															<div class="card-inner">
+																<div class="modal-body">
+																	<h4 id="myModalLabel"><?php echo $name; ?></h4>
+																	<h6 id="myModalLabel"><?php echo $role; ?></h6>
+																	<p><?php echo $bio; ?></p>
+																	<a href="mailto:<?php echo $email; ?>">Contact</a>
+																</div>
+															</div>
+														</div>	
+													</div>	
+												</div>	
+											</div>
+											-->
 
+										</div>
+										<div class="modal-footer">
+											<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
 										</div>
 									</div>
 								</div>

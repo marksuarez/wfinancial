@@ -1,6 +1,19 @@
 <?php get_header(); ?>
 
 	<main role="main">
+		<!-- Default Archive Page
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1><?php // _e('Archives', 'html5blank' ); ?></h1>
+						<?php // get_template_part('loop'); ?>
+						<?php // get_template_part('pagination'); ?>
+					</div>
+				</div>
+			</div>	
+		</section>
+		-->
 
 		<section id="pagehead">
 
@@ -11,8 +24,6 @@
 			</div>
 
 			<div class="pagehead" style="background-image: url(<?php echo site_url() ?>/wp-content/uploads/header_SKYLINE.png);"
-				data-100-top="background-position: center bottom 0px;"
-				data--600-top="background-position: center bottom -200px;"
 				>
 				<div class="container">
 					<div class="row">
