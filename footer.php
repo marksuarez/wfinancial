@@ -15,7 +15,7 @@
 				</div>
 			</section>
 			
-			<?php endif; ?>
+			<?php endif; //End Show only if not on the homepage ?>
 
 			<section>
 

@@ -38,7 +38,6 @@
 							<?php else: ?>
 								<h3>Overview</h3>
 							<?php endif; ?>
-							<hr class="fancy"/>
 							<?php if( get_field('overview_text') ): ?>
 								<?php echo the_field('overview_text'); ?>
 							<?php endif; ?>
@@ -64,7 +63,6 @@
 								<?php if( get_field('people_intro') ): ?>
 									<p class="lead text-center"><?php echo the_field('people_intro'); ?></p>
 								<?php endif; ?>	
-								<hr class="fancy"/>
 							</div>
 						</div>
 					</div>
@@ -108,52 +106,33 @@
 												<div class="modal-content">
 													<!--<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button></div>-->
 
-																	<div class="row row-eq-height">
-																		<div class="col-md-6 col-md-push-6 flex">
-																		<div class="donedeal-inner-image" <?php if( get_sub_field('grid_portrait') ): ?> style="background-image: url(<?php the_sub_field('grid_portrait'); ?>);" <?php endif?>></div>
-																		<div>
-																		</div>
+														<div class="row row-eq-height">
+															
+															<div class="col-md-6 col-md-push-6 flex">
+																<div class="donedeal-inner-image" <?php if( get_sub_field('grid_portrait') ): ?> style="background-image: url(<?php the_sub_field('grid_portrait'); ?>);" <?php endif?>>
+																	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																</div>
+															</div>
+														
+															<div class="col-md-6 col-md-pull-6">
+																<div class="donedeal-inner-text">
+																	<div class="card-featured-label">
+																		<h2><?php echo $name; ?></h2>
+																		<h6><?php echo $role; ?><br/></h6>
+																		<hr class="fancy"/>
 																	</div>
-																	<div class="col-md-6 col-md-pull-6">
-																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-																		<div class="donedeal-inner-text">
-																			<div class="card-featured-label">
-																				<h2><?php echo $name; ?></h2>
-																				<h6><?php echo $role; ?><br/></h6>
-																				<hr class="fancy"/>
-																			</div>
-																			<div class="card-featured-label">
-																				<?php echo $bio; ?>
-																				<a href="mailto:<?php echo $email; ?>">Contact <?php echo $name; ?></a>
-																			</div>
-																			<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
-																		</div>	
+																	<div class="card-featured-label">
+																		<?php echo $bio; ?>
+																		<a href="mailto:<?php echo $email; ?>">Contact <?php echo $name; ?></a>
 																	</div>
+																	<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
 																</div>	
-															</div>	
+															</div>
 														</div>	
-
-														<!--
-														<div class="row">
-															<div class="col-md-6">
-																<div class="card-wrapper-partners">
-																	<div class="card">
-																		<div class="card-inner">
-																			<div class="modal-body">
-																				<h4 id="myModalLabel"><?php echo $name; ?></h4>
-																				<h6 id="myModalLabel"><?php echo $role; ?></h6>
-																				<p><?php echo $bio; ?></p>
-																				<a href="mailto:<?php echo $email; ?>">Contact</a>
-																			</div>
-																		</div>
-																	</div>	
-																</div>	
-															</div>	
-														</div>
-														-->
-
+															
 													<!--<div class="modal-footer"><button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button></div>-->
-
+												</div>	
+											</div>
 										</div>
 									</div>
 								</div>
@@ -191,7 +170,6 @@
 								<?php if( get_field('references_intro') ): ?>
 									<p class="lead text-center"><?php echo the_field('references_intro'); ?></p>
 								<?php endif; ?>	
-								<hr class="fancy"/>
 							</div>
 						</div>
 					</div>
@@ -251,72 +229,25 @@
 								<?php if( get_field('affiliates_intro') ): ?>
 									<p class="lead text-center"><?php echo the_field('affiliates_intro'); ?></p>
 								<?php endif; ?>
-								<hr class="fancy"/>
 							</div>
 						</div>
 					</div>	
 					<div class="row">
-						<div class="col-md-5">
-							
-							<?php echo get_field('affiliates'); ?>
-
-						</div>
-						<div class="col-md-push-1 col-md-6">
-							
-							<div class="card affiliates-logo-card">
+						<div class="col-md-6">
+							<div class="affiliates-logo">
 								<?php if( get_field('affiliates_logo') ): ?>
 									<img class="img-responsive" src="<?php echo the_field('affiliates_logo'); ?>"/>
 								<?php endif; ?>
 							</div>
-
+						</div>
+						<div class="col-md-6">
+							<?php echo get_field('affiliates'); ?>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-
-<!--
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-
-						<h1><?php the_title(); ?></h1>
-
-					<?php //if (have_posts()): while (have_posts()) : the_post(); ?>
-
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-							<?php// the_content(); ?>
-
-							<?php// comments_template( '', true ); // Remove if you don't want comments ?>
-
-							<br class="clear">
-
-							<?php// edit_post_link(); ?>
-
-
-					<?php //endwhile; ?>
-
-					<?php //else: ?>
-
-						<article>
-
-							<h2><?php// _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-						</article>
-
-					<?php// endif; ?>
-
-					</div>
-				</div>
-			</div>
-		</section>
--->
 	</main>
-
-<?php //get_sidebar(); ?>
-
 
 <?php get_footer(); ?>

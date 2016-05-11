@@ -89,13 +89,21 @@
 		            	<source src="http://marksuarez.github.io/video/Option_2/Option2_light.ogv/">
 	            	</video>
 					-->
-	            	
+	            	<!--
 	            	<video id="video2" class="video-bg" preload="auto" muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/video/final/Option3.png">
 		            	<source src="<?php echo get_template_directory_uri(); ?>/video/final/Option3.webm"/>
 		            	<source src="<?php echo get_template_directory_uri(); ?>/video/final/Option3.mp4"/>
 		            	<source src="<?php echo get_template_directory_uri(); ?>/video/final/Option3.ogv"/>
 	            	</video>	
+					-->
+
+					<video id="video2" class="video-bg" preload="auto" muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/video/newtests/option9/9.png">
+		            	<source src="<?php echo get_template_directory_uri(); ?>/video/newtests/option9/9.webm"/>
+		            	<source src="<?php echo get_template_directory_uri(); ?>/video/newtests/option9/9.mp4"/>
+		            	<source src="<?php echo get_template_directory_uri(); ?>/video/newtests/option9/9.ogv"/>
+	            	</video>	
 					
+
             	</div>
 				<!-- / Fullscreen video -->
 
@@ -138,9 +146,6 @@
 			</div>
 
 
-
-			
-			
 
 		</section>
 

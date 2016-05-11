@@ -23,14 +23,12 @@ var go = (function ($, root, undefined) {
 	* Affix Side Nav 
 	*/
 	affixSideNav = function () {
-		if (!window.matchMedia('(max-width: 991px)').matches) {
-			$('.custom-nav-stacked').affix({
-	      		offset: {
-	        		top: $('#navbar').height() + $('#pagehead').height() - 50,
-	        		bottom: $('footer').height() + 100,
-	      		}
-			});
-		}
+		$('.custom-nav-stacked').affix({
+      		offset: {
+        		top: $('#navbar').height() + $('#pagehead').height() - 50,
+        		bottom: $('footer').height() + 100,
+      		}
+		});
 	},
 
 	/* 
@@ -191,6 +189,7 @@ var go = (function ($, root, undefined) {
 			$('#backToTop').removeClass('on');
 		}
 	},
+
 
 	/* 
 	* Text Rotator in hero
@@ -400,17 +399,17 @@ var go = (function ($, root, undefined) {
 	ready = function() {
 		pinHeader();
 		scrollToTopArrow();
-		//setupRotator();
 		heroMenuToggle();
 		showSearch();
-		initSkrollr();
-		//initVideo();
 		initResponsiveVideo();
 		initSmoothScroll();
 		initFlickity();
 		fixHeight();
 		initIsotope();
 		affixSideNav();
+		//setupRotator();
+		//initSkrollr();
+		//initVideo();
 		//initVide();
 		//canPlayThrough();
 
